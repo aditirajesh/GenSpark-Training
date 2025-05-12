@@ -1,0 +1,45 @@
+Q1) In a transaction, if I perform multiple updates and an error happens in the third statement, but I have not used SAVEPOINT, what will happen if I issue a ROLLBACK?
+Will my first two updates persist?
+
+A1) No, the first two updates will not persist. This is because a commit wasn't made, neither was there a savepoint present after the first two updates. Therefore the entire transaction will be rolled back. 
+
+Q2)Suppose Transaction A updates Alice’s balance but does not commit. Can Transaction B read the new balance if the isolation level is set to READ COMMITTED?
+
+A2) No, Transaction B cannot read the new balance. Being at the READ COMMITTED isolation level, it can only read updates which have been committed, and since the update by transaction A wasn't commited, B will be unable to read it. Moreover, POSTGRESQL does not support Uncommitted reads. 
+
+Q3)What will happen if two concurrent transactions both execute:
+UPDATE tbl_bank_accounts SET balance = balance - 100 WHERE account_name = 'Alice';
+at the same time? Will one overwrite the other?
+
+A3) POSTGRESQL has MVCC that locks transactions - preventing overwriting. No two transactions can simultaneously read or write as a consequence of this, and therefore the transactions execute sequentially. 
+
+Q4)If I issue ROLLBACK TO SAVEPOINT after_alice;, will it only undo changes made after the savepoint or everything?
+
+A4)It will undo changes made after the savepoint after_alice.
+
+
+Q5) Which isolation level in PostgreSQL prevents phantom reads?
+
+A5) The highest isolation level - Serializable. 
+
+Q6)Can Postgres perform a dirty read (reading uncommitted data from another transaction)?
+
+A6) POSTGRESQL does not support dirty reads (The first isolation level, i.i., READ UNCOMMITTED)
+
+Q7)If autocommit is ON (default in Postgres), and I execute an UPDATE, is it safe to assume the change is immediately committed?
+
+A7)Yes it is safe to assume the change has been immediately committed IF the update statement is NOT present in an explicit transaction (defined by START or BEGIN) that has been committed. 
+
+Q8)If I do this:
+
+BEGIN;
+UPDATE accounts SET balance = balance - 500 WHERE id = 1;
+-- (No COMMIT yet)
+And from another session, I run:
+
+SELECT balance FROM accounts WHERE id = 1;
+Will the second session see the deducted balance?
+
+A8) No, the second session will not see the deducted balance as the transaction has not been committed yet. 
+
+
