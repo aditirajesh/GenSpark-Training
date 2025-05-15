@@ -11,7 +11,9 @@ CREATE table CustomerSummary(
 	PRIMARY KEY(customer_id)
 )
 
-DO $$
+CREATE OR REPLACE PROCEDURE proc_CustomerSummary()
+LANGUAGE plpgsql 
+AS $$
 DECLARE 
 	cur_NumRentals CURSOR FOR
 		(Select customer_id, COUNT(rental_id) as NumRentals
@@ -22,23 +24,26 @@ DECLARE
 BEGIN 
 	open cur_NumRentals;
 
-	loop
+	LOOP
 		FETCH NEXT FROM cur_NumRentals INTO custid,numrentals;
 		EXIT WHEN NOT FOUND;
 		
 		RAISE NOTICE 'Customer ID:%, Number of Rentals:%',custid,numrentals;
 		INSERT INTO CustomerSummary VALUES(custid,numrentals);
 
-	end loop;
+	END LOOP;
 	close cur_NumRentals;
 END;
 $$;
 
+CALL proc_CustomerSummary()
 select * from CustomerSummary;
 
 --2)Using a cursor, print the titles of films in the 'Comedy' category rented more than 10 times.
 
-DO $$ 
+CREATE OR REPLACE PROCEDURE proc_ComedyFilmsRent()
+LANGUAGE plpgsql
+AS $$ 
 DECLARE
     cur_ComedyFilms CURSOR FOR
         SELECT f.title, COUNT(r.rental_id) AS NumRentals
@@ -65,14 +70,18 @@ BEGIN
 END;
 $$;
 
+CALL proc_ComedyFilmsRent()
+
 --3)Create a cursor to go through each store and count the number of distinct films available, and insert results into a report table.
-CREATE TABLE report(
+CREATE TABLE Film_report(
 	report_id SERIAL PRIMARY KEY,
 	store_id INT REFERENCES store(store_id),
 	numfilms INT
 );
 
-DO $$
+CREATE OR REPLACE PROCEDURE proc_DistinctFilms()
+LANGUAGE plpgsql 
+AS $$
 DECLARE 
 	cur_FilmsByStore CURSOR FOR
 		(SELECT s.store_id, COUNT(distinct f.film_id) as numfilms
@@ -91,25 +100,27 @@ BEGIN
 		FETCH NEXT FROM cur_FilmsByStore INTO storeid,num_films;
 		EXIT WHEN NOT FOUND;
 
-		INSERT INTO report(store_id,numfilms) VALUES (storeid,num_films);
+		INSERT INTO Film_Report(store_id,numfilms) VALUES (storeid,num_films);
 
 	end loop;
 	close cur_FilmsByStore;
 END;
 $$;
 
-select * from report;
+CALL proc_DistinctFilms()
+
+select * from Film_report;
 
 --4)Loop through all customers who haven't rented in the last 6 months and insert their details into an inactive_customers table.
-select * from customer;
-select * from rental;
 
 CREATE TABLE inactive_customer(
 	customer_id INT REFERENCES customer(customer_id),
 	last_rental timestamp
 );
 
-DO $$
+CREATE OR REPLACE PROCEDURE proc_InactiveCustomers()
+LANGUAGE plpgsql
+AS $$
 DECLARE 
 	cur_inactivecustomer CURSOR FOR 
 		(SELECT c.customer_id, MAX(r.rental_date)
@@ -134,26 +145,43 @@ BEGIN
 END;
 $$;
 
+CALL proc_InactiveCustomers()
+
 select * from inactive_customer;
 
 -- Transactions 
 --1)Write a transaction that inserts a new customer, adds their rental, and logs the payment – all atomically.
+select * from payment
+CREATE OR REPLACE PROCEDURE proc_InsertCustomer(p_storeid INT,
+	p_firstname TEXT, p_lastname TEXT, p_email TEXT, p_addressid INT, p_active INT,
+	p_rentaldate TIMESTAMP, p_inventoryid INT, p_returndate TIMESTAMP, p_staffid INT,
+	p_amount NUMERIC, p_paymentdate TIMESTAMP
+	)
+LANGUAGE plpgsql
+AS $$
+BEGIN
 
-START TRANSACTION;
-insert into customer VALUES (
-    602, 1, 'John', 'Doe', 'john.doe@example.com', 123,
-    TRUE, '2025-05-13 10:00:00', '2025-05-13 10:00:00', 1
-);
+	BEGIN
+		with new_customer as 
+		(
+			insert into customer (store_id, first_name, last_name, email, address_id, active) values (p_storeid, p_firstname, p_lastname, p_email, p_addressid, p_active)
+			returning customer_id
+		),
+		new_rental as 
+		(
+			insert into rental (rental_date, inventory_id, customer_id, return_date, staff_id) 
+			values (now(), p_inventoryid, (select customer_id from new_customer), p_returndate, p_staffid)
+			returning customer_id, rental_id
+		)
+		
+		insert into payment(customer_id,staff_id,rental_id,amount,payment_date) VALUES
+		((SELECT customer_id from new_rental),p_staffid,(SELECT rental_id from new_rental),p_amount,p_paymentdate)
+	EXCEPTION WHEN OTHERS THEN 
+		RAISE NOTICE 'Transaction failed %',sqlerrm;
+	END;
+END;
+$$;
 
-insert into rental VALUES(
-	16051,'2025-05-13 14:30:00', 101, 602, '2025-05-23 14:30:00', 1, '2025-05-13 14:30:00'	
-);
-
-insert into payment VALUES(32099,602,1,16051,7.99,NOW());
-
-COMMIT;
-
-select * from customer where customer_id = 602;
 
 --2)Simulate a transaction where one update fails (e.g., invalid rental ID), and ensure the entire transaction rolls back.
 
@@ -195,16 +223,28 @@ SET store_id=2 WHERE inventory_id=2;
 COMMIT;
 
 --5)Create a transaction that deletes a customer and all associated records (rental, payment), ensuring referential integrity.
-START TRANSACTION;
-delete from CustomerSummary WHERE customer_id=2;
-delete from inactive_customer WHERE customer_id=2;
-delete from payment WHERE customer_id=2;
-delete from rental WHERE customer_id=2;
-delete from customer WHERE customer_id=2;
+CREATE OR REPLACE PROCEDURE proc_DeleteCustomer(p_custid INT)
+LANGUAGE plpgsql 
+AS $$
+BEGIN --beginning of the stored procedure
+	BEGIN --beginning of the transaction 
+		delete from CustomerSummary WHERE customer_id=p_custid;
+		delete from inactive_customer WHERE customer_id=p_custid;
+		delete from payment WHERE customer_id=p_custid;
+		delete from rental WHERE customer_id=p_custid;
+		delete from customer WHERE customer_id=p_custid;
 
-COMMIT;
+	--no commit statement required 
+	EXCEPTION WHEN OTHERS THEN 
+		RAISE NOTICE 'Transaction failed %',sqlerrm;
+	END;
+END;
+$$;
 
-select * from customer where customer_id=2;
+CALL proc_DeleteCustomer(6)
+
+select * from customer where customer_id=6
+	
 
 --Triggers
 --1)Create a trigger to prevent inserting payments of zero or negative amount.
@@ -309,15 +349,50 @@ EXECUTE FUNCTION fn_InsertRentalLog();
 
 INSERT INTO rental (rental_id,rental_date, inventory_id, customer_id, return_date, staff_id, last_update)
 VALUES
-    (16502,'2025-05-06 10:00:00', 3, 101, '2025-05-06 12:00:00', 1, CURRENT_TIMESTAMP),
-    (16503,'2025-05-07 11:00:00', 3, 102, '2025-05-07 13:00:00', 2, CURRENT_TIMESTAMP),
-    (16504,'2025-05-08 14:00:00', 3, 103, '2025-05-08 16:00:00', 1, CURRENT_TIMESTAMP),
-    (16505,'2025-05-09 09:00:00', 3, 104, '2025-05-09 11:00:00', 2, CURRENT_TIMESTAMP);
+    (16502,'2025-05-10 10:00:00', 3, 101, '2025-05-20 12:00:00', 1, CURRENT_TIMESTAMP),
+    (16503,'2025-05-11 11:00:00', 3, 102, '2025-05-21 13:00:00', 2, CURRENT_TIMESTAMP),
+    (16504,'2025-05-12 14:00:00', 3, 103, '2025-05-22 16:00:00', 1, CURRENT_TIMESTAMP),
+    (16505,'2025-05-13 09:00:00', 3, 104, '2025-05-23 11:00:00', 2, CURRENT_TIMESTAMP);
 
 SELECT * FROM rental_log;
 
 DELETE FROM rental WHERE rental_id IN (16502,16503,16504,16505)
-truncate rental_log
+DELETE from rental_log
 select * from film where film_id=4;
 select * from inventory where inventory_id=4;
 select * from rental where rental_id=4;
+
+--loop through all the films and update the rental rate by +1 for teh films when rental count < 5
+CREATE OR REPLACE PROCEDURE proc_UpdateRentalRate()
+LANGUAGE plpgsql 
+AS $$
+DECLARE 
+	rec record;
+	cur_film_rentcount CURSOR FOR(
+		SELECT f.film_id,f.rental_rate,COUNT(r.rental_id) AS rentcount
+		from film f 
+		LEFT JOIN inventory i 
+		ON f.film_id = i.film_id
+		LEFT JOIN rental r 
+		ON i.inventory_id = r.inventory_id
+		GROUP BY f.film_id,f.rental_rate
+		HAVING COUNT(r.rental_id) < 5);
+
+BEGIN 
+	open cur_film_rentcount;
+	LOOP
+		FETCH NEXT FROM cur_film_rentcount INTO rec;
+		EXIT WHEN NOT FOUND;
+
+		UPDATE film SET rental_rate = rental_rate+1
+		WHERE film_id = rec.film_id;
+
+		RAISE NOTICE 'UPDATED rental_rate with film_id %. New rental rate is: %',rec.film_id,rec.rental_rate+1;
+	END LOOP;
+	close cur_film_rentcount;
+END;
+$$;
+
+CALL proc_UpdateRentalRate();
+
+SELECT version();
