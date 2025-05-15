@@ -1,0 +1,49 @@
+Access commands in sql:
+
+1)starting the server
+pg_ctl -D C:\pri -o "-p 5433" -l c:\pri\logfile start
+
+2)login to postgres 
+psql -p 5433 -d postgres
+
+3)create role readonly
+ create role readonly login password 'rol123';
+
+4)create database dbsample
+create database dbsample;
+
+5)allowing access to dbsample by readonly
+grant connect on database dbsample to readonly;
+
+6)granting select to readonly
+grant SELECT ON ALL TABLES in schema public to readonly;
+
+7)creating table customer and inserting records - dbsample
+create table customer(cust_id SERIAL PRIMARY KEY, custname TEXT, email TEXT);
+insert into customer(custname,email) values
+dbsample-# ('aditi','a1@'),
+dbsample-# ('srujana','s2@'),
+dbsample-# ('shreyas','s3@'),
+dbsample-# ('ratna','r4@');
+
+8)seeing if select works via readonly
+ psql -U readonly -d dbsample -p 5433
+select * from customer;
+ cust_id | custname | email
+---------+----------+-------
+       1 | aditi    | a1@
+       2 | srujana  | s2@
+       3 | shreyas  | s3@
+       4 | ratna    | r4@
+
+9)revoking select from readonly
+psql -U arajesh -d dbsample -p 5433
+ REVOKE SELECT ON TABLE Customer from readonly;
+
+10) checking if select works via readonly
+psql -U readonly -d dbsample -p 5433
+select * from customer;
+2025-05-15 14:06:26.002 IST [22180] ERROR:  permission denied for table customer
+2025-05-15 14:06:26.002 IST [22180] STATEMENT:  select * from customer;
+ERROR:  permission denied for table customer
+
