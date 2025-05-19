@@ -1,0 +1,155 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\csharp\\genspark_basicsofcsharp\\genspark_basicsofcsharp\\exercises\\question12.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|solutionrelative:genspark_basicsofcsharp\\exercises\\question12.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\csharp\\genspark_basicsofcsharp\\genspark_basicsofcsharp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|solutionrelative:genspark_basicsofcsharp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\csharp\\genspark_basicsofcsharp\\genspark_basicsofcsharp\\exercises\\question10.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|solutionrelative:genspark_basicsofcsharp\\exercises\\question10.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\csharp\\genspark_basicsofcsharp\\genspark_basicsofcsharp\\exercises\\question11.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|solutionrelative:genspark_basicsofcsharp\\exercises\\question11.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question9.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GenSpark_BasicsofCSharp\\Exercises\\Question9.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GenSpark_BasicsofCSharp\\Exercises\\Question6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question8.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GenSpark_BasicsofCSharp\\Exercises\\Question8.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question7.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GenSpark_BasicsofCSharp\\Exercises\\Question7.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Question9.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question9.cs",
+              "RelativeDocumentMoniker": "GenSpark_BasicsofCSharp\\Exercises\\Question9.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question9.cs",
+              "RelativeToolTip": "GenSpark_BasicsofCSharp\\Exercises\\Question9.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T07:03:35.642Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Question6.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question6.cs",
+              "RelativeDocumentMoniker": "GenSpark_BasicsofCSharp\\Exercises\\Question6.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question6.cs",
+              "RelativeToolTip": "GenSpark_BasicsofCSharp\\Exercises\\Question6.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB8AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T06:25:49.434Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Question12.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question12.cs",
+              "RelativeDocumentMoniker": "GenSpark_BasicsofCSharp\\Exercises\\Question12.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question12.cs",
+              "RelativeToolTip": "GenSpark_BasicsofCSharp\\Exercises\\Question12.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T09:30:38.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Program.cs",
+              "RelativeDocumentMoniker": "GenSpark_BasicsofCSharp\\Program.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Program.cs",
+              "RelativeToolTip": "GenSpark_BasicsofCSharp\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T04:52:07.531Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Question11.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question11.cs",
+              "RelativeDocumentMoniker": "GenSpark_BasicsofCSharp\\Exercises\\Question11.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question11.cs",
+              "RelativeToolTip": "GenSpark_BasicsofCSharp\\Exercises\\Question11.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T09:15:30.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Question10.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question10.cs",
+              "RelativeDocumentMoniker": "GenSpark_BasicsofCSharp\\Exercises\\Question10.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question10.cs",
+              "RelativeToolTip": "GenSpark_BasicsofCSharp\\Exercises\\Question10.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAYwD4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T08:14:34.758Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Question8.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question8.cs",
+              "RelativeDocumentMoniker": "GenSpark_BasicsofCSharp\\Exercises\\Question8.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question8.cs",
+              "RelativeToolTip": "GenSpark_BasicsofCSharp\\Exercises\\Question8.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwBMAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T06:51:38.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Question7.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question7.cs",
+              "RelativeDocumentMoniker": "GenSpark_BasicsofCSharp\\Exercises\\Question7.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Exercises\\Question7.cs",
+              "RelativeToolTip": "GenSpark_BasicsofCSharp\\Exercises\\Question7.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T06:42:00.137Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

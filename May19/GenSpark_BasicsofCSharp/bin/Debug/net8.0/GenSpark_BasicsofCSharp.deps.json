@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "GenSpark_BasicsofCSharp/1.0.0": {
+        "runtime": {
+          "GenSpark_BasicsofCSharp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GenSpark_BasicsofCSharp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

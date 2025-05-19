@@ -1,0 +1,15 @@
+C:\Users\arajesh\Desktop\GensparkTraining\CSharp\GenSpark_BasicsofCSharp\GenSpark_BasicsofCSharp\obj\Debug\net8.0\GenSpark_BasicsofCSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arajesh\Desktop\GensparkTraining\CSharp\GenSpark_BasicsofCSharp\GenSpark_BasicsofCSharp\obj\Debug\net8.0\GenSpark_BasicsofCSharp.AssemblyInfoInputs.cache
+C:\Users\arajesh\Desktop\GensparkTraining\CSharp\GenSpark_BasicsofCSharp\GenSpark_BasicsofCSharp\obj\Debug\net8.0\GenSpark_BasicsofCSharp.AssemblyInfo.cs
+C:\Users\arajesh\Desktop\GensparkTraining\CSharp\GenSpark_BasicsofCSharp\GenSpark_BasicsofCSharp\obj\Debug\net8.0\GenSpark_BasicsofCSharp.csproj.CoreCompileInputs.cache
+C:\Users\arajesh\Desktop\GensparkTraining\CSharp\GenSpark_BasicsofCSharp\GenSpark_BasicsofCSharp\obj\Debug\net8.0\GenSpark_BasicsofCSharp.sourcelink.json
+C:\Users\arajesh\Desktop\GensparkTraining\CSharp\GenSpark_BasicsofCSharp\GenSpark_BasicsofCSharp\bin\Debug\net8.0\GenSpark_BasicsofCSharp.exe
+C:\Users\arajesh\Desktop\GensparkTraining\CSharp\GenSpark_BasicsofCSharp\GenSpark_BasicsofCSharp\bin\Debug\net8.0\GenSpark_BasicsofCSharp.deps.json
+C:\Users\arajesh\Desktop\GensparkTraining\CSharp\GenSpark_BasicsofCSharp\GenSpark_BasicsofCSharp\bin\Debug\net8.0\GenSpark_BasicsofCSharp.runtimeconfig.json
+C:\Users\arajesh\Desktop\GensparkTraining\CSharp\GenSpark_BasicsofCSharp\GenSpark_BasicsofCSharp\bin\Debug\net8.0\GenSpark_BasicsofCSharp.dll
+C:\Users\arajesh\Desktop\GensparkTraining\CSharp\GenSpark_BasicsofCSharp\GenSpark_BasicsofCSharp\bin\Debug\net8.0\GenSpark_BasicsofCSharp.pdb
+C:\Users\arajesh\Desktop\GensparkTraining\CSharp\GenSpark_BasicsofCSharp\GenSpark_BasicsofCSharp\obj\Debug\net8.0\GenSpark_BasicsofCSharp.dll
+C:\Users\arajesh\Desktop\GensparkTraining\CSharp\GenSpark_BasicsofCSharp\GenSpark_BasicsofCSharp\obj\Debug\net8.0\refint\GenSpark_BasicsofCSharp.dll
+C:\Users\arajesh\Desktop\GensparkTraining\CSharp\GenSpark_BasicsofCSharp\GenSpark_BasicsofCSharp\obj\Debug\net8.0\GenSpark_BasicsofCSharp.pdb
+C:\Users\arajesh\Desktop\GensparkTraining\CSharp\GenSpark_BasicsofCSharp\GenSpark_BasicsofCSharp\obj\Debug\net8.0\GenSpark_BasicsofCSharp.genruntimeconfig.cache
+C:\Users\arajesh\Desktop\GensparkTraining\CSharp\GenSpark_BasicsofCSharp\GenSpark_BasicsofCSharp\obj\Debug\net8.0\ref\GenSpark_BasicsofCSharp.dll
