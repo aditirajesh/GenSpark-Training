@@ -1,9 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\",
+  "WorkspaceRootPath": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May19\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\csharp\\genspark_basicsofcsharp\\genspark_basicsofcsharp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may19\\genspark_basicsofcsharp\\exercises\\question10.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|solutionrelative:genspark_basicsofcsharp\\exercises\\question10.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may19\\genspark_basicsofcsharp\\exercises\\question11.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|solutionrelative:genspark_basicsofcsharp\\exercises\\question11.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may19\\genspark_basicsofcsharp\\exercises\\question12.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|solutionrelative:genspark_basicsofcsharp\\exercises\\question12.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may19\\genspark_basicsofcsharp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB2E40DF-224B-4D82-870C-1A6C428E93C8}|GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp.csproj|solutionrelative:genspark_basicsofcsharp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -19,12 +31,51 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Question10.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May19\\GenSpark_BasicsofCSharp\\Exercises\\Question10.cs",
+              "RelativeDocumentMoniker": "GenSpark_BasicsofCSharp\\Exercises\\Question10.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May19\\GenSpark_BasicsofCSharp\\Exercises\\Question10.cs",
+              "RelativeToolTip": "GenSpark_BasicsofCSharp\\Exercises\\Question10.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAADoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T10:59:36.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Question11.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May19\\GenSpark_BasicsofCSharp\\Exercises\\Question11.cs",
+              "RelativeDocumentMoniker": "GenSpark_BasicsofCSharp\\Exercises\\Question11.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May19\\GenSpark_BasicsofCSharp\\Exercises\\Question11.cs",
+              "RelativeToolTip": "GenSpark_BasicsofCSharp\\Exercises\\Question11.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T10:59:34.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Question12.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May19\\GenSpark_BasicsofCSharp\\Exercises\\Question12.cs",
+              "RelativeDocumentMoniker": "GenSpark_BasicsofCSharp\\Exercises\\Question12.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May19\\GenSpark_BasicsofCSharp\\Exercises\\Question12.cs",
+              "RelativeToolTip": "GenSpark_BasicsofCSharp\\Exercises\\Question12.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T10:55:36.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May19\\GenSpark_BasicsofCSharp\\Program.cs",
               "RelativeDocumentMoniker": "GenSpark_BasicsofCSharp\\Program.cs",
-              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\CSharp\\GenSpark_BasicsofCSharp\\GenSpark_BasicsofCSharp\\Program.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May19\\GenSpark_BasicsofCSharp\\Program.cs",
               "RelativeToolTip": "GenSpark_BasicsofCSharp\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-19T04:52:07.531Z",
               "EditorCaption": ""

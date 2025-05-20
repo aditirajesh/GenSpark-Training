@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GenSpark_BasicsofCSharp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94d0d9e9a93b8e82fb228a523695be30ae80aabe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c82e61d2d255b2529f25a4a3399dd14f055471ac")]
 [assembly: System.Reflection.AssemblyProductAttribute("GenSpark_BasicsofCSharp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GenSpark_BasicsofCSharp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
