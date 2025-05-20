@@ -1,0 +1,5 @@
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\obj\Debug\net8.0\Collections.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\obj\Debug\net8.0\Collections.AssemblyInfoInputs.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\obj\Debug\net8.0\Collections.AssemblyInfo.cs
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\obj\Debug\net8.0\Collections.csproj.CoreCompileInputs.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\obj\Debug\net8.0\Collections.sourcelink.json

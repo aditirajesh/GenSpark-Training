@@ -1,0 +1,89 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May20\\Collections\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ECCCC98B-74AC-4377-BB87-47C239853F50}|BasicsofCollections.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may20\\collections\\exercises\\easy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECCCC98B-74AC-4377-BB87-47C239853F50}|BasicsofCollections.csproj|solutionrelative:exercises\\easy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECCCC98B-74AC-4377-BB87-47C239853F50}|Collections.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may20\\collections\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECCCC98B-74AC-4377-BB87-47C239853F50}|Collections.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECCCC98B-74AC-4377-BB87-47C239853F50}|BasicsofCollections.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may20\\collections\\exercises\\medium.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECCCC98B-74AC-4377-BB87-47C239853F50}|BasicsofCollections.csproj|solutionrelative:exercises\\medium.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECCCC98B-74AC-4377-BB87-47C239853F50}|BasicsofCollections.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may20\\collections\\exercises\\hard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECCCC98B-74AC-4377-BB87-47C239853F50}|BasicsofCollections.csproj|solutionrelative:exercises\\hard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Easy.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May20\\Collections\\Exercises\\Easy.cs",
+              "RelativeDocumentMoniker": "Exercises\\Easy.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May20\\Collections\\Exercises\\Easy.cs",
+              "RelativeToolTip": "Exercises\\Easy.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAIwB0AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T06:16:51.49Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Hard.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May20\\Collections\\Exercises\\Hard.cs",
+              "RelativeDocumentMoniker": "Exercises\\Hard.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May20\\Collections\\Exercises\\Hard.cs",
+              "RelativeToolTip": "Exercises\\Hard.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAgwHMAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T09:31:36.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Medium.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May20\\Collections\\Exercises\\Medium.cs",
+              "RelativeDocumentMoniker": "Exercises\\Medium.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May20\\Collections\\Exercises\\Medium.cs",
+              "RelativeToolTip": "Exercises\\Medium.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAQwAwAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T08:46:34.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May20\\Collections\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May20\\Collections\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T06:16:27.493Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Arrays\bin\Debug\net8.0\Arrays.exe
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Arrays\bin\Debug\net8.0\Arrays.deps.json
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Arrays\bin\Debug\net8.0\Arrays.runtimeconfig.json
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Arrays\bin\Debug\net8.0\Arrays.dll
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Arrays\bin\Debug\net8.0\Arrays.pdb
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Arrays\obj\Debug\net8.0\Arrays.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Arrays\obj\Debug\net8.0\Arrays.AssemblyInfoInputs.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Arrays\obj\Debug\net8.0\Arrays.AssemblyInfo.cs
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Arrays\obj\Debug\net8.0\Arrays.csproj.CoreCompileInputs.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Arrays\obj\Debug\net8.0\Arrays.sourcelink.json
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Arrays\obj\Debug\net8.0\Arrays.dll
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Arrays\obj\Debug\net8.0\refint\Arrays.dll
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Arrays\obj\Debug\net8.0\Arrays.pdb
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Arrays\obj\Debug\net8.0\Arrays.genruntimeconfig.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Arrays\obj\Debug\net8.0\ref\Arrays.dll

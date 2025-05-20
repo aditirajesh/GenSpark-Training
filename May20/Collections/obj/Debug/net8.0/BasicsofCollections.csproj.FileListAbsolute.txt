@@ -1,0 +1,15 @@
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\bin\Debug\net8.0\BasicsofCollections.exe
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\bin\Debug\net8.0\BasicsofCollections.deps.json
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\bin\Debug\net8.0\BasicsofCollections.runtimeconfig.json
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\bin\Debug\net8.0\BasicsofCollections.dll
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\bin\Debug\net8.0\BasicsofCollections.pdb
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\obj\Debug\net8.0\BasicsofCollections.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\obj\Debug\net8.0\BasicsofCollections.AssemblyInfoInputs.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\obj\Debug\net8.0\BasicsofCollections.AssemblyInfo.cs
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\obj\Debug\net8.0\BasicsofCollections.csproj.CoreCompileInputs.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\obj\Debug\net8.0\BasicsofCollections.sourcelink.json
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\obj\Debug\net8.0\BasicsofCollections.dll
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\obj\Debug\net8.0\refint\BasicsofCollections.dll
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\obj\Debug\net8.0\BasicsofCollections.pdb
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\obj\Debug\net8.0\BasicsofCollections.genruntimeconfig.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May20\Collections\obj\Debug\net8.0\ref\BasicsofCollections.dll
