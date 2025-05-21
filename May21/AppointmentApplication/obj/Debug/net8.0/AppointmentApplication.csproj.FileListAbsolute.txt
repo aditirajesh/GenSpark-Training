@@ -1,0 +1,15 @@
+C:\Users\arajesh\Desktop\GensparkTraining\May21\AppointmentApplication\obj\Debug\net8.0\AppointmentApplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arajesh\Desktop\GensparkTraining\May21\AppointmentApplication\obj\Debug\net8.0\AppointmentApplication.AssemblyInfoInputs.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May21\AppointmentApplication\obj\Debug\net8.0\AppointmentApplication.AssemblyInfo.cs
+C:\Users\arajesh\Desktop\GensparkTraining\May21\AppointmentApplication\obj\Debug\net8.0\AppointmentApplication.csproj.CoreCompileInputs.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May21\AppointmentApplication\obj\Debug\net8.0\AppointmentApplication.sourcelink.json
+C:\Users\arajesh\Desktop\GensparkTraining\May21\AppointmentApplication\bin\Debug\net8.0\AppointmentApplication.exe
+C:\Users\arajesh\Desktop\GensparkTraining\May21\AppointmentApplication\bin\Debug\net8.0\AppointmentApplication.deps.json
+C:\Users\arajesh\Desktop\GensparkTraining\May21\AppointmentApplication\bin\Debug\net8.0\AppointmentApplication.runtimeconfig.json
+C:\Users\arajesh\Desktop\GensparkTraining\May21\AppointmentApplication\bin\Debug\net8.0\AppointmentApplication.dll
+C:\Users\arajesh\Desktop\GensparkTraining\May21\AppointmentApplication\bin\Debug\net8.0\AppointmentApplication.pdb
+C:\Users\arajesh\Desktop\GensparkTraining\May21\AppointmentApplication\obj\Debug\net8.0\AppointmentApplication.dll
+C:\Users\arajesh\Desktop\GensparkTraining\May21\AppointmentApplication\obj\Debug\net8.0\refint\AppointmentApplication.dll
+C:\Users\arajesh\Desktop\GensparkTraining\May21\AppointmentApplication\obj\Debug\net8.0\AppointmentApplication.pdb
+C:\Users\arajesh\Desktop\GensparkTraining\May21\AppointmentApplication\obj\Debug\net8.0\AppointmentApplication.genruntimeconfig.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May21\AppointmentApplication\obj\Debug\net8.0\ref\AppointmentApplication.dll

@@ -1,0 +1,208 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\appointmentapplication\\manageappointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|solutionrelative:manageappointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\appointmentapplication\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|solutionrelative:models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\appointmentapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\appointmentapplication\\respositories\\appointmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|solutionrelative:respositories\\appointmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\appointmentapplication\\services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|solutionrelative:services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\appointmentapplication\\respositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|solutionrelative:respositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\appointmentapplication\\exceptions\\collectionemptyexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|solutionrelative:exceptions\\collectionemptyexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\appointmentapplication\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|solutionrelative:interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\appointmentapplication\\interfaces\\iappointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|solutionrelative:interfaces\\iappointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\appointmentapplication\\exceptions\\duplicateentityexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|solutionrelative:exceptions\\duplicateentityexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\appointmentapplication\\models\\appointmentsearchmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6937684-EFE7-4F79-A30C-3208C5E3DCE7}|AppointmentApplication.csproj|solutionrelative:models\\appointmentsearchmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Models\\Appointment.cs",
+              "RelativeDocumentMoniker": "Models\\Appointment.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Models\\Appointment.cs",
+              "RelativeToolTip": "Models\\Appointment.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA5wD0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T08:46:59.988Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T11:58:56.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IAppointmentService.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Interfaces\\IAppointmentService.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IAppointmentService.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Interfaces\\IAppointmentService.cs",
+              "RelativeToolTip": "Interfaces\\IAppointmentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T11:06:27.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AppointmentSearchModel.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Models\\AppointmentSearchModel.cs",
+              "RelativeDocumentMoniker": "Models\\AppointmentSearchModel.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Models\\AppointmentSearchModel.cs",
+              "RelativeToolTip": "Models\\AppointmentSearchModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAACvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T10:58:35.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ManageAppointments.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\ManageAppointments.cs",
+              "RelativeDocumentMoniker": "ManageAppointments.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\ManageAppointments.cs",
+              "RelativeToolTip": "ManageAppointments.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAQwDIAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T09:52:28.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppointmentService.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Services\\AppointmentService.cs",
+              "RelativeDocumentMoniker": "Services\\AppointmentService.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Services\\AppointmentService.cs",
+              "RelativeToolTip": "Services\\AppointmentService.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAAwFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T09:22:03.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CollectionEmptyException.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Exceptions\\CollectionEmptyException.cs",
+              "RelativeDocumentMoniker": "Exceptions\\CollectionEmptyException.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Exceptions\\CollectionEmptyException.cs",
+              "RelativeToolTip": "Exceptions\\CollectionEmptyException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T09:15:41.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppointmentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Respositories\\AppointmentRepository.cs",
+              "RelativeDocumentMoniker": "Respositories\\AppointmentRepository.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Respositories\\AppointmentRepository.cs",
+              "RelativeToolTip": "Respositories\\AppointmentRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T09:03:59.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DuplicateEntityException.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Exceptions\\DuplicateEntityException.cs",
+              "RelativeDocumentMoniker": "Exceptions\\DuplicateEntityException.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Exceptions\\DuplicateEntityException.cs",
+              "RelativeToolTip": "Exceptions\\DuplicateEntityException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T08:59:41.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Respositories\\Repository.cs",
+              "RelativeDocumentMoniker": "Respositories\\Repository.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Respositories\\Repository.cs",
+              "RelativeToolTip": "Respositories\\Repository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T08:53:48.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Interfaces\\IRepository.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IRepository.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\AppointmentApplication\\Interfaces\\IRepository.cs",
+              "RelativeToolTip": "Interfaces\\IRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T08:50:17.558Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

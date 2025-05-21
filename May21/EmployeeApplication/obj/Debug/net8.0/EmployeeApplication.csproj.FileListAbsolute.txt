@@ -1,0 +1,15 @@
+C:\Users\arajesh\Desktop\GensparkTraining\May21\EmployeeApplication\obj\Debug\net8.0\EmployeeApplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arajesh\Desktop\GensparkTraining\May21\EmployeeApplication\obj\Debug\net8.0\EmployeeApplication.AssemblyInfoInputs.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May21\EmployeeApplication\obj\Debug\net8.0\EmployeeApplication.AssemblyInfo.cs
+C:\Users\arajesh\Desktop\GensparkTraining\May21\EmployeeApplication\obj\Debug\net8.0\EmployeeApplication.csproj.CoreCompileInputs.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May21\EmployeeApplication\obj\Debug\net8.0\EmployeeApplication.sourcelink.json
+C:\Users\arajesh\Desktop\GensparkTraining\May21\EmployeeApplication\bin\Debug\net8.0\EmployeeApplication.exe
+C:\Users\arajesh\Desktop\GensparkTraining\May21\EmployeeApplication\bin\Debug\net8.0\EmployeeApplication.deps.json
+C:\Users\arajesh\Desktop\GensparkTraining\May21\EmployeeApplication\bin\Debug\net8.0\EmployeeApplication.runtimeconfig.json
+C:\Users\arajesh\Desktop\GensparkTraining\May21\EmployeeApplication\bin\Debug\net8.0\EmployeeApplication.dll
+C:\Users\arajesh\Desktop\GensparkTraining\May21\EmployeeApplication\bin\Debug\net8.0\EmployeeApplication.pdb
+C:\Users\arajesh\Desktop\GensparkTraining\May21\EmployeeApplication\obj\Debug\net8.0\EmployeeApplication.dll
+C:\Users\arajesh\Desktop\GensparkTraining\May21\EmployeeApplication\obj\Debug\net8.0\refint\EmployeeApplication.dll
+C:\Users\arajesh\Desktop\GensparkTraining\May21\EmployeeApplication\obj\Debug\net8.0\EmployeeApplication.pdb
+C:\Users\arajesh\Desktop\GensparkTraining\May21\EmployeeApplication\obj\Debug\net8.0\EmployeeApplication.genruntimeconfig.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May21\EmployeeApplication\obj\Debug\net8.0\ref\EmployeeApplication.dll
