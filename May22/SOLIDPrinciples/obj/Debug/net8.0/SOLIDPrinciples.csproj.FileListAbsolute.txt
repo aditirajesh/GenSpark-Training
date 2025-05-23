@@ -1,0 +1,15 @@
+C:\Users\arajesh\Desktop\GensparkTraining\May21\SOLIDPrinciples\obj\Debug\net8.0\SOLIDPrinciples.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arajesh\Desktop\GensparkTraining\May21\SOLIDPrinciples\obj\Debug\net8.0\SOLIDPrinciples.AssemblyInfoInputs.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May21\SOLIDPrinciples\obj\Debug\net8.0\SOLIDPrinciples.AssemblyInfo.cs
+C:\Users\arajesh\Desktop\GensparkTraining\May21\SOLIDPrinciples\obj\Debug\net8.0\SOLIDPrinciples.csproj.CoreCompileInputs.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May21\SOLIDPrinciples\obj\Debug\net8.0\SOLIDPrinciples.sourcelink.json
+C:\Users\arajesh\Desktop\GensparkTraining\May21\SOLIDPrinciples\bin\Debug\net8.0\SOLIDPrinciples.exe
+C:\Users\arajesh\Desktop\GensparkTraining\May21\SOLIDPrinciples\bin\Debug\net8.0\SOLIDPrinciples.deps.json
+C:\Users\arajesh\Desktop\GensparkTraining\May21\SOLIDPrinciples\bin\Debug\net8.0\SOLIDPrinciples.runtimeconfig.json
+C:\Users\arajesh\Desktop\GensparkTraining\May21\SOLIDPrinciples\bin\Debug\net8.0\SOLIDPrinciples.dll
+C:\Users\arajesh\Desktop\GensparkTraining\May21\SOLIDPrinciples\bin\Debug\net8.0\SOLIDPrinciples.pdb
+C:\Users\arajesh\Desktop\GensparkTraining\May21\SOLIDPrinciples\obj\Debug\net8.0\SOLIDPrinciples.dll
+C:\Users\arajesh\Desktop\GensparkTraining\May21\SOLIDPrinciples\obj\Debug\net8.0\refint\SOLIDPrinciples.dll
+C:\Users\arajesh\Desktop\GensparkTraining\May21\SOLIDPrinciples\obj\Debug\net8.0\SOLIDPrinciples.pdb
+C:\Users\arajesh\Desktop\GensparkTraining\May21\SOLIDPrinciples\obj\Debug\net8.0\SOLIDPrinciples.genruntimeconfig.cache
+C:\Users\arajesh\Desktop\GensparkTraining\May21\SOLIDPrinciples\obj\Debug\net8.0\ref\SOLIDPrinciples.dll
