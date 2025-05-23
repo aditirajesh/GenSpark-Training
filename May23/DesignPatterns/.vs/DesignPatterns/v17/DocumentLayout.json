@@ -1,0 +1,140 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May23\\DesignPatterns\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF30243-F21E-43DC-810C-E5ADA6ECE5F4}|DesignPatterns.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may23\\designpatterns\\creational\\singleton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF30243-F21E-43DC-810C-E5ADA6ECE5F4}|DesignPatterns.csproj|solutionrelative:creational\\singleton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF30243-F21E-43DC-810C-E5ADA6ECE5F4}|DesignPatterns.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may23\\designpatterns\\creational\\models\\csvfilehandling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF30243-F21E-43DC-810C-E5ADA6ECE5F4}|DesignPatterns.csproj|solutionrelative:creational\\models\\csvfilehandling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF30243-F21E-43DC-810C-E5ADA6ECE5F4}|DesignPatterns.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may23\\designpatterns\\creational\\models\\textfilehandling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF30243-F21E-43DC-810C-E5ADA6ECE5F4}|DesignPatterns.csproj|solutionrelative:creational\\models\\textfilehandling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF30243-F21E-43DC-810C-E5ADA6ECE5F4}|DesignPatterns.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may23\\designpatterns\\creational\\models\\jsonfilehandling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF30243-F21E-43DC-810C-E5ADA6ECE5F4}|DesignPatterns.csproj|solutionrelative:creational\\models\\jsonfilehandling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF30243-F21E-43DC-810C-E5ADA6ECE5F4}|DesignPatterns.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may23\\designpatterns\\creational\\interfaces\\ifilehandling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF30243-F21E-43DC-810C-E5ADA6ECE5F4}|DesignPatterns.csproj|solutionrelative:creational\\interfaces\\ifilehandling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF30243-F21E-43DC-810C-E5ADA6ECE5F4}|DesignPatterns.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may23\\designpatterns\\creational\\example.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{ECF30243-F21E-43DC-810C-E5ADA6ECE5F4}|DesignPatterns.csproj|solutionrelative:creational\\example.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF30243-F21E-43DC-810C-E5ADA6ECE5F4}|DesignPatterns.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may23\\designpatterns\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF30243-F21E-43DC-810C-E5ADA6ECE5F4}|DesignPatterns.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Singleton.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May23\\DesignPatterns\\Creational\\Singleton.cs",
+              "RelativeDocumentMoniker": "Creational\\Singleton.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May23\\DesignPatterns\\Creational\\Singleton.cs",
+              "RelativeToolTip": "Creational\\Singleton.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAowEoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T06:17:48.215Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CSVFileHandling.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May23\\DesignPatterns\\Creational\\Models\\CSVFileHandling.cs",
+              "RelativeDocumentMoniker": "Creational\\Models\\CSVFileHandling.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May23\\DesignPatterns\\Creational\\Models\\CSVFileHandling.cs",
+              "RelativeToolTip": "Creational\\Models\\CSVFileHandling.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T07:27:03.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "JSONFileHandling.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May23\\DesignPatterns\\Creational\\Models\\JSONFileHandling.cs",
+              "RelativeDocumentMoniker": "Creational\\Models\\JSONFileHandling.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May23\\DesignPatterns\\Creational\\Models\\JSONFileHandling.cs",
+              "RelativeToolTip": "Creational\\Models\\JSONFileHandling.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T07:15:59.851Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TextFileHandling.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May23\\DesignPatterns\\Creational\\Models\\TextFileHandling.cs",
+              "RelativeDocumentMoniker": "Creational\\Models\\TextFileHandling.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May23\\DesignPatterns\\Creational\\Models\\TextFileHandling.cs",
+              "RelativeToolTip": "Creational\\Models\\TextFileHandling.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T07:13:57.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IFileHandling.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May23\\DesignPatterns\\Creational\\Interfaces\\IFileHandling.cs",
+              "RelativeDocumentMoniker": "Creational\\Interfaces\\IFileHandling.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May23\\DesignPatterns\\Creational\\Interfaces\\IFileHandling.cs",
+              "RelativeToolTip": "Creational\\Interfaces\\IFileHandling.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T07:12:23.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "example.txt",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May23\\DesignPatterns\\Creational\\example.txt",
+              "RelativeDocumentMoniker": "Creational\\example.txt",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May23\\DesignPatterns\\Creational\\example.txt",
+              "RelativeToolTip": "Creational\\example.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-05-23T06:48:41.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May23\\DesignPatterns\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May23\\DesignPatterns\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T06:17:23.17Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
