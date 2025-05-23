@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\EmployeeApplication\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\employeeapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\employeeapplication\\manageemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|solutionrelative:manageemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\employeeapplication\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|solutionrelative:repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\employeeapplication\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|solutionrelative:repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\employeeapplication\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,14 +35,6 @@
       "RelativeMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|solutionrelative:models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\employeeapplication\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|solutionrelative:repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\employeeapplication\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|solutionrelative:repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\employeeapplication\\exceptions\\collectionemptyexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|solutionrelative:exceptions\\collectionemptyexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -41,10 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\employeeapplication\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|solutionrelative:interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|c:\\users\\arajesh\\desktop\\gensparktraining\\may21\\employeeapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B9C0C16-94AA-486C-9040-7D7E38A1A286}|EmployeeApplication.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,11 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Employee.cs",
               "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\EmployeeApplication\\Models\\Employee.cs",
               "RelativeDocumentMoniker": "Models\\Employee.cs",
@@ -67,12 +67,11 @@
               "ViewState": "AgIAAAoAAAAAAAAAAAAzwAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-21T04:06:14.692Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ManageEmployees.cs",
               "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\EmployeeApplication\\ManageEmployees.cs",
               "RelativeDocumentMoniker": "ManageEmployees.cs",
@@ -85,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "IEmployeeService.cs",
               "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\EmployeeApplication\\Interfaces\\IEmployeeService.cs",
               "RelativeDocumentMoniker": "Interfaces\\IEmployeeService.cs",
@@ -93,12 +92,11 @@
               "RelativeToolTip": "Interfaces\\IEmployeeService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T06:29:47.795Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T06:29:47.795Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "EmployeeService.cs",
               "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\EmployeeApplication\\Services\\EmployeeService.cs",
               "RelativeDocumentMoniker": "Services\\EmployeeService.cs",
@@ -106,12 +104,11 @@
               "RelativeToolTip": "Services\\EmployeeService.cs",
               "ViewState": "AgIAAFEAAAAAAAAAAAAowAYAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T06:28:14.795Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T06:28:14.795Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "SearchModel.cs",
               "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\EmployeeApplication\\Models\\SearchModel.cs",
               "RelativeDocumentMoniker": "Models\\SearchModel.cs",
@@ -119,25 +116,24 @@
               "RelativeToolTip": "Models\\SearchModel.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T06:25:38.66Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T06:25:38.66Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "EmployeeRepository.cs",
               "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\EmployeeApplication\\Repositories\\EmployeeRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\EmployeeRepository.cs",
               "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\EmployeeApplication\\Repositories\\EmployeeRepository.cs",
               "RelativeToolTip": "Repositories\\EmployeeRepository.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACQAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwCQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-21T05:29:07.571Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "CollectionEmptyException.cs",
               "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\EmployeeApplication\\Exceptions\\CollectionEmptyException.cs",
               "RelativeDocumentMoniker": "Exceptions\\CollectionEmptyException.cs",
@@ -145,12 +141,11 @@
               "RelativeToolTip": "Exceptions\\CollectionEmptyException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T05:27:14.881Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T05:27:14.881Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "DuplicateEntityException.cs",
               "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\EmployeeApplication\\Exceptions\\DuplicateEntityException.cs",
               "RelativeDocumentMoniker": "Exceptions\\DuplicateEntityException.cs",
@@ -158,12 +153,11 @@
               "RelativeToolTip": "Exceptions\\DuplicateEntityException.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T05:01:15.52Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T05:01:15.52Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Repository.cs",
               "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\EmployeeApplication\\Repositories\\Repository.cs",
               "RelativeDocumentMoniker": "Repositories\\Repository.cs",
@@ -171,12 +165,11 @@
               "RelativeToolTip": "Repositories\\Repository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T04:47:12.202Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T04:47:12.202Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "IRepository.cs",
               "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\EmployeeApplication\\Interfaces\\IRepository.cs",
               "RelativeDocumentMoniker": "Interfaces\\IRepository.cs",
@@ -184,18 +177,17 @@
               "RelativeToolTip": "Interfaces\\IRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T04:45:02.395Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T04:45:02.395Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\EmployeeApplication\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\arajesh\\Desktop\\GensparkTraining\\May21\\EmployeeApplication\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAwwEoAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-21T04:05:53.371Z",
               "EditorCaption": ""
