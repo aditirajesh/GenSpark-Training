@@ -1,0 +1,15 @@
+/Users/aditirajesh/Desktop/GenSpark-Training/May22/SOLIDPrinciples/bin/Debug/net9.0/SOLIDPrinciples
+/Users/aditirajesh/Desktop/GenSpark-Training/May22/SOLIDPrinciples/bin/Debug/net9.0/SOLIDPrinciples.deps.json
+/Users/aditirajesh/Desktop/GenSpark-Training/May22/SOLIDPrinciples/bin/Debug/net9.0/SOLIDPrinciples.runtimeconfig.json
+/Users/aditirajesh/Desktop/GenSpark-Training/May22/SOLIDPrinciples/bin/Debug/net9.0/SOLIDPrinciples.dll
+/Users/aditirajesh/Desktop/GenSpark-Training/May22/SOLIDPrinciples/bin/Debug/net9.0/SOLIDPrinciples.pdb
+/Users/aditirajesh/Desktop/GenSpark-Training/May22/SOLIDPrinciples/obj/Debug/net9.0/SOLIDPrinciples.GeneratedMSBuildEditorConfig.editorconfig
+/Users/aditirajesh/Desktop/GenSpark-Training/May22/SOLIDPrinciples/obj/Debug/net9.0/SOLIDPrinciples.AssemblyInfoInputs.cache
+/Users/aditirajesh/Desktop/GenSpark-Training/May22/SOLIDPrinciples/obj/Debug/net9.0/SOLIDPrinciples.AssemblyInfo.cs
+/Users/aditirajesh/Desktop/GenSpark-Training/May22/SOLIDPrinciples/obj/Debug/net9.0/SOLIDPrinciples.csproj.CoreCompileInputs.cache
+/Users/aditirajesh/Desktop/GenSpark-Training/May22/SOLIDPrinciples/obj/Debug/net9.0/SOLIDPrinciples.sourcelink.json
+/Users/aditirajesh/Desktop/GenSpark-Training/May22/SOLIDPrinciples/obj/Debug/net9.0/SOLIDPrinciples.dll
+/Users/aditirajesh/Desktop/GenSpark-Training/May22/SOLIDPrinciples/obj/Debug/net9.0/refint/SOLIDPrinciples.dll
+/Users/aditirajesh/Desktop/GenSpark-Training/May22/SOLIDPrinciples/obj/Debug/net9.0/SOLIDPrinciples.pdb
+/Users/aditirajesh/Desktop/GenSpark-Training/May22/SOLIDPrinciples/obj/Debug/net9.0/SOLIDPrinciples.genruntimeconfig.cache
+/Users/aditirajesh/Desktop/GenSpark-Training/May22/SOLIDPrinciples/obj/Debug/net9.0/ref/SOLIDPrinciples.dll
