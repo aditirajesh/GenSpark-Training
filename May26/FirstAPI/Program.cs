@@ -1,22 +1,29 @@
-var builder = WebApplication.CreateBuilder(args); //sets up the basic web app - starting point
+using FirstAPI.Contexts;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-//builder.Services.AddOpenApi();
-builder.Services.AddEndpointsApiExplorer(); //describe all the end-points/routes so that the swagger can use them 
-builder.Services.AddSwaggerGen(); //swagger helps show your api in a nice web page
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
-var app = builder.Build(); //building the actual app
+builder.Services.AddDbContext<ClinicContext>(opts =>
+{
+    opts.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment()) //if im just testing my app, then
+if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+
 app.MapControllers();
+
 app.Run();
-
-

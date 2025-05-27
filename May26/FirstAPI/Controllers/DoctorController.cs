@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using FirstAPI.Models;
 
 [ApiController]
 [Route("/api/[controller]")]

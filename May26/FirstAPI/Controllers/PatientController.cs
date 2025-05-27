@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using FirstAPI.Models;
 
 [ApiController]
 [Route("/api/[controller]")]
@@ -7,9 +8,9 @@ public class PatientController : ControllerBase
 {
 
     static List<Patient> patients = new List<Patient> {
-        new Patient{Id=101,Name="Aditi",Reason="Typhoid"},
-        new Patient{Id=102,Name="Srujana",Reason="Diabetes"},
-        new Patient{Id=103,Name="Aakarsh",Reason="Food Poisoning"}
+        new Patient{Id=101,Name="Aditi"},
+        new Patient{Id=102,Name="Srujana"},
+        new Patient{Id=103,Name="Aakarsh"}
 
     };
 
@@ -31,7 +32,6 @@ public class PatientController : ControllerBase
             return NotFound("Patient not found");
         }
         patient.Name = updatedPatient.Name;
-        patient.Reason = updatedPatient.Reason;
         return NoContent();
     }
 
