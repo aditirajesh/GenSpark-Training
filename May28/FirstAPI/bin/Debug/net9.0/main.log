@@ -1,0 +1,12 @@
+2025-06-04 12:33:26,540 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7240
+2025-06-04 12:33:26,547 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5173
+2025-06-04 12:33:26,549 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 12:33:26,549 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 12:33:26,550 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/aditirajesh/Desktop/GenSpark-Training/May28/FirstAPI
+2025-06-04 12:33:57,205 [.NET TP Worker] INFO Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (46ms) [Parameters=[@__key_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT u."Username", u."HashKey", u."Password", u."Role", d."Id", d."Email", d."Name", d."Status", d."YearsOfExperience"
+FROM "Users" AS u
+LEFT JOIN "Doctors" AS d ON u."Username" = d."Email"
+WHERE u."Username" = @__key_0
+LIMIT 2
+2025-06-04 12:34:37,300 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...

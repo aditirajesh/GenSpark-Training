@@ -11,6 +11,10 @@ namespace FirstAPI.Models
         public Speciality? Speciality { get; set; }
         public Doctor? Doctor { get; set; }
 
+        public DoctorSpeciality()
+        {
+        }
+
         public DoctorSpeciality(int doctorid, int specialityid, Doctor? doctor = null, Speciality? speciality = null)
         {
             DoctorId = doctorid;

@@ -1,4 +1,5 @@
 using FirstAPI.Models;
+using FirstAPI.Models.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace FirstAPI.Contexts
@@ -18,14 +19,29 @@ namespace FirstAPI.Contexts
         
         public DbSet<User> Users { get; set; }
 
+        public DbSet<DoctorsBySpecialityResponseDto> DoctorsBySpeciality { get; set; }
+
+        public async Task<List<DoctorsBySpecialityResponseDto>> GetDoctorsBySpeciality(string speciality)
+        {
+            return await this.Set<DoctorsBySpecialityResponseDto>()
+                        .FromSqlInterpolated($"select * from proc_GetDoctorsBySpeciality({speciality})")
+                        .ToListAsync();
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasKey(u => u.UserId);
+            modelBuilder.Entity<Patient>().HasOne(p => p.User)
+                                        .WithOne(u => u.Patient)
+                                        .HasForeignKey<Patient>(p => p.Email)
+                                        .HasPrincipalKey<User>(u => u.Username)
+                                        .HasConstraintName("FK_User_Patient")
+                                        .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<User>().HasOne(u => u.UserFollower)
-                                        .WithMany(us => us.Followers)
-                                        .HasForeignKey(u => u.FollwerId)
-                                        .HasConstraintName("FK_Followers")
+            modelBuilder.Entity<Doctor>().HasOne(p => p.User)
+                                        .WithOne(u => u.Doctor)
+                                        .HasForeignKey<Doctor>(p => p.Email)
+                                        .HasPrincipalKey<User>(u => u.Username)
+                                        .HasConstraintName("FK_User_Doctor")
                                         .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Appointment>().HasKey(app => app.Id).HasName("PK_AppointmentNumber");

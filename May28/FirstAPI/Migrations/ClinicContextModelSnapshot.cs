@@ -49,7 +49,27 @@ namespace FirstAPI.Migrations
 
                     b.HasIndex("PatientId");
 
-                    b.ToTable("Appointmnets");
+                    b.ToTable("Appointments");
+                });
+
+            modelBuilder.Entity("FirstAPI.Models.DTOs.DoctorsBySpecialityResponseDto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Dname")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<float>("Yoe")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DoctorsBySpeciality");
                 });
 
             modelBuilder.Entity("FirstAPI.Models.Doctor", b =>
@@ -60,7 +80,15 @@ namespace FirstAPI.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -68,6 +96,9 @@ namespace FirstAPI.Migrations
                         .HasColumnType("real");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Doctors");
                 });
@@ -120,6 +151,9 @@ namespace FirstAPI.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
                     b.ToTable("Patients");
                 });
 
@@ -146,22 +180,20 @@ namespace FirstAPI.Migrations
 
             modelBuilder.Entity("FirstAPI.Models.User", b =>
                 {
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                    b.Property<string>("Username")
+                        .HasColumnType("text");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UserId"));
+                    b.Property<byte[]>("HashKey")
+                        .HasColumnType("bytea");
 
-                    b.Property<int>("FollwerId")
-                        .HasColumnType("integer");
+                    b.Property<byte[]>("Password")
+                        .HasColumnType("bytea");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("UserId");
-
-                    b.HasIndex("FollwerId");
+                    b.HasKey("Username");
 
                     b.ToTable("Users");
                 });
@@ -187,6 +219,18 @@ namespace FirstAPI.Migrations
                     b.Navigation("Patient");
                 });
 
+            modelBuilder.Entity("FirstAPI.Models.Doctor", b =>
+                {
+                    b.HasOne("FirstAPI.Models.User", "User")
+                        .WithOne("Doctor")
+                        .HasForeignKey("FirstAPI.Models.Doctor", "Email")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("FK_User_Doctor");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("FirstAPI.Models.DoctorSpeciality", b =>
                 {
                     b.HasOne("FirstAPI.Models.Doctor", "Doctor")
@@ -208,16 +252,16 @@ namespace FirstAPI.Migrations
                     b.Navigation("Speciality");
                 });
 
-            modelBuilder.Entity("FirstAPI.Models.User", b =>
+            modelBuilder.Entity("FirstAPI.Models.Patient", b =>
                 {
-                    b.HasOne("FirstAPI.Models.User", "UserFollower")
-                        .WithMany("Followers")
-                        .HasForeignKey("FollwerId")
+                    b.HasOne("FirstAPI.Models.User", "User")
+                        .WithOne("Patient")
+                        .HasForeignKey("FirstAPI.Models.Patient", "Email")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
-                        .HasConstraintName("FK_Followers");
+                        .HasConstraintName("FK_User_Patient");
 
-                    b.Navigation("UserFollower");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("FirstAPI.Models.Doctor", b =>
@@ -239,7 +283,9 @@ namespace FirstAPI.Migrations
 
             modelBuilder.Entity("FirstAPI.Models.User", b =>
                 {
-                    b.Navigation("Followers");
+                    b.Navigation("Doctor");
+
+                    b.Navigation("Patient");
                 });
 #pragma warning restore 612, 618
         }

@@ -4,13 +4,13 @@ using FirstAPI.Interfaces;
 using Microsoft.EntityFrameworkCore;
 namespace FirstAPI.Repositories
 {
-    public abstract class DoctorSpecialityRepository : Repository<int, DoctorSpeciality>
+    public class DoctorSpecialityRepository : Repository<int, DoctorSpeciality>
     {
         public DoctorSpecialityRepository(ClinicContext clinicContext) : base(clinicContext) { }
 
         public override async Task<DoctorSpeciality> GetByID(int id)
         {
-            var item = await _clinicContext.DoctorSpecialities.SingleOrDefaultAsync(a => a.Id == id);
+            var item = await _clinicContext.DoctorSpecialities.SingleOrDefaultAsync(a => a.SerialNumber == id);
             if (item != null)
             {
                 return item;

@@ -1,49 +1,53 @@
 using Microsoft.AspNetCore.Mvc;
 using FirstAPI.Models;
+using FirstAPI.Models.DTOs;
+using FirstAPI.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 [ApiController]
 [Route("/api/[controller]")]
 
 public class PatientController : ControllerBase 
 {
+    private readonly IPatientService _patientService;
 
-    static List<Patient> patients = new List<Patient> {
-        new Patient{Id=101,Name="Aditi"},
-        new Patient{Id=102,Name="Srujana"},
-        new Patient{Id=103,Name="Aakarsh"}
+    public PatientController(IPatientService patientService) {
+        _patientService = patientService;
+    }
 
-    };
-
-    [HttpGet]
-    public ActionResult<IEnumerable<Patient>> GetPatient() {
-        return Ok(patients);
+    [HttpGet("get-by-name/{name}")]
+    [Authorize]
+    public async Task<ActionResult<Patient>> GetPatient(string name) {
+        try
+        {
+            var newPatient = await _patientService.GetPatientByName(name);
+            if (newPatient != null)
+            {
+                return Ok(newPatient);
+            }
+            return BadRequest("Unable to find the user");
+        }
+        catch (Exception e)
+        {
+            return Unauthorized(e.Message);
+        }
     }
 
     [HttpPost]
-    public ActionResult<Patient> PostPatient([FromBody] Patient patient) {
-        patients.Add(patient);
-        return Created("",patient);
-    }
-
-    [HttpPut("{id}")]
-    public ActionResult PutPatient(int id, [FromBody] Patient updatedPatient) {
-        var patient = patients.FirstOrDefault(x=> x.Id == id);
-        if (patient == null) {
-            return NotFound("Patient not found");
+    public async Task<ActionResult<Patient>> PostPatient([FromBody] PatientAddRequestDto dto) {
+        try
+        {
+            var newPatient = await _patientService.AddPatient(dto);
+            if (newPatient != null)
+            {
+                return Created("", newPatient);
+            }
+            return BadRequest("Unable to create patient at the moment");
         }
-        patient.Name = updatedPatient.Name;
-        return NoContent();
-    }
-
-    [HttpDelete("{id}")]
-    public ActionResult DeletePatient(int id) {
-        var patient = patients.FirstOrDefault(x=> x.Id == id);
-        if (patient == null) {
-            return NotFound("Patient not found");
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
         }
-        patients.Remove(patient);
-        return NoContent();
     }
-
 
 }

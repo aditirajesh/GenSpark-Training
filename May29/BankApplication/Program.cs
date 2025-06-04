@@ -40,6 +40,9 @@ builder.Services.AddSingleton<AccountMapper>();
 builder.Services.AddSingleton<UserMapper>();
 builder.Services.AddSingleton<BankTransactionMapper>();
 
+builder.Services.AddSingleton<FAQService>();
+
+
 
 var app = builder.Build();
 

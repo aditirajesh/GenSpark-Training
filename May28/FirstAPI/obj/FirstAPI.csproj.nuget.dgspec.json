@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/aditirajesh/Desktop/GenSpark-Training/May26/FirstAPI/FirstAPI.csproj": {}
+    "/Users/aditirajesh/Desktop/GenSpark-Training/May28/FirstAPI/FirstAPI.csproj": {}
   },
   "projects": {
-    "/Users/aditirajesh/Desktop/GenSpark-Training/May26/FirstAPI/FirstAPI.csproj": {
+    "/Users/aditirajesh/Desktop/GenSpark-Training/May28/FirstAPI/FirstAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/aditirajesh/Desktop/GenSpark-Training/May26/FirstAPI/FirstAPI.csproj",
+        "projectUniqueName": "/Users/aditirajesh/Desktop/GenSpark-Training/May28/FirstAPI/FirstAPI.csproj",
         "projectName": "FirstAPI",
-        "projectPath": "/Users/aditirajesh/Desktop/GenSpark-Training/May26/FirstAPI/FirstAPI.csproj",
+        "projectPath": "/Users/aditirajesh/Desktop/GenSpark-Training/May28/FirstAPI/FirstAPI.csproj",
         "packagesPath": "/Users/aditirajesh/.nuget/packages/",
-        "outputPath": "/Users/aditirajesh/Desktop/GenSpark-Training/May26/FirstAPI/obj/",
+        "outputPath": "/Users/aditirajesh/Desktop/GenSpark-Training/May28/FirstAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/aditirajesh/.nuget/NuGet/NuGet.Config"
@@ -44,6 +44,18 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.5, )"
@@ -53,6 +65,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.5, )"
+            },
+            "Microsoft.Extensions.Logging.Log4Net.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",

@@ -4,9 +4,9 @@ using FirstAPI.Interfaces;
 using Microsoft.EntityFrameworkCore;
 namespace FirstAPI.Repositories
 {
-    public abstract class PatientRepository : Repository<int, Patient>
+    public class PatientRepository : Repository<int, Patient>
     {
-        protected PatientRepository(ClinicContext clinicContext) : base(clinicContext) { }
+        public PatientRepository(ClinicContext clinicContext) : base(clinicContext) { }
         public override async Task<Patient> GetByID(int key)
         {
             var patient = await _clinicContext.Patients.SingleOrDefaultAsync(p => p.Id == key);

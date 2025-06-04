@@ -4,7 +4,7 @@ using FirstAPI.Interfaces;
 using Microsoft.EntityFrameworkCore;
 namespace FirstAPI.Repositories
 {
-    public abstract class AppointmentRepository : Repository<int, Appointment>
+    public  class AppointmentRepository : Repository<int, Appointment>
     {
         public AppointmentRepository(ClinicContext clinicContext) : base(clinicContext) { }
 

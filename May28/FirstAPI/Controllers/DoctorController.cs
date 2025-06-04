@@ -1,44 +1,50 @@
-using Microsoft.AspNetCore.Mvc;
+
+using System.Threading.Tasks;
+using FirstAPI.Interfaces;
 using FirstAPI.Models;
+using FirstAPI.Models.DTOs;
+using FirstAPI.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
-[ApiController]
-[Route("/api/[controller]")]
-public class DoctorController : ControllerBase
+
+namespace FirstAPI.Controllers
 {
-    static List<Doctor> doctors = new List<Doctor>
-    {
-        new Doctor{Id=101,Name="Ramu"},
-        new Doctor{Id=102,Name="Somu"},
-    };
-    [HttpGet]
-    public ActionResult<IEnumerable<Doctor>> GetDoctors()
-    {
-        return Ok(doctors);
-    }
-    [HttpPost]
-    public ActionResult<Doctor> PostDoctor([FromBody] Doctor doctor)
-    {
-        doctors.Add(doctor);
-        return Created("", doctor);
-    }
-    [HttpPut("{id}")]
-    public ActionResult PutDoctor(int id, [FromBody] Doctor updatedDoctor) {
-        var doctor = doctors.FirstOrDefault(x => x.Id == id);
-        if (doctor == null) {
-            return NotFound("Doctor not found");
-        }
-        doctor.Name = updatedDoctor.Name;
-        return NoContent();
-    }
 
-    [HttpDelete("{id}")]
-    public ActionResult DeleteDoctor(int id) {
-        var doctor = doctors.FirstOrDefault(x => x.Id == id);
-        if (doctor == null) {
-            return NotFound("Doctor not found");
-        }
-        doctors.Remove(doctor);
-        return NoContent();
-    }
 
+    [ApiController]
+    [Route("/api/[controller]")]
+    public class DoctorController : ControllerBase
+    {
+        private readonly IDoctorService _doctorService;
+
+        public DoctorController(IDoctorService doctorService)
+        {
+            _doctorService = doctorService;
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult<IEnumerable<DoctorsBySpecialityResponseDto>>> GetDoctors(string speciality)
+        {
+            var result = await _doctorService.GetDoctorsBySpeciality(speciality);
+            return Ok(result);
+        }
+        [HttpPost]
+        public async Task<ActionResult<Doctor>> PostDoctor([FromBody] DoctorAddRequestDto doctor)
+        {
+            try
+            {
+                var newDoctor = await _doctorService.AddDoctor(doctor);
+                if (newDoctor != null)
+                    return Created("", newDoctor);
+                return BadRequest("Unable to process request at this moment");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+    }
 }

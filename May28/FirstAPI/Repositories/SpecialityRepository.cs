@@ -4,7 +4,7 @@ using FirstAPI.Interfaces;
 using Microsoft.EntityFrameworkCore;
 namespace FirstAPI.Repositories
 {
-    public abstract class SpecialityRepository : Repository<int, Speciality>
+    public  class SpecialityRepository : Repository<int, Speciality>
     {
         public SpecialityRepository(ClinicContext clinicContext) : base(clinicContext) { }
 

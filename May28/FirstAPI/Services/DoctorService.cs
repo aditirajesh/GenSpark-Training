@@ -1,78 +1,142 @@
+using System.Threading.Tasks;
 using FirstAPI.Interfaces;
+using FirstAPI.Misc;
 using FirstAPI.Models;
-using FirstAPI.Repositories;
-using FirstAPI.Contexts;
 using FirstAPI.Models.DTOs;
+using Microsoft.VisualBasic;
+using AutoMapper;
+
 
 namespace FirstAPI.Services
 {
     public class DoctorService : IDoctorService
     {
+        DoctorMapper doctorMapper;
+        SpecialityMapper specialityMapper;
         private readonly IRepository<int, Doctor> _doctorRepository;
         private readonly IRepository<int, Speciality> _specialityRepository;
         private readonly IRepository<int, DoctorSpeciality> _doctorSpecialityRepository;
+        private readonly IRepository<string, User> _userRepository;
+        private readonly IOtherContextFunctionalities _otherContextFunctionalities;
+        private readonly IEncryptionService _encryptionService;
+        private readonly IMapper _mapper;
+        private readonly IRepository<int, Appointment> _appointmentRepository;
+
         public DoctorService(IRepository<int, Doctor> doctorRepository,
                             IRepository<int, Speciality> specialityRepository,
-                            IRepository<int, DoctorSpeciality> doctorSpecialityRepository)
+                            IRepository<int, DoctorSpeciality> doctorSpecialityRepository,
+                            IOtherContextFunctionalities otherContextFunctionities,
+                            IRepository<string, User> userRepository,
+                            IEncryptionService encryptionService,
+                            IMapper mapper,
+                            IRepository<int, Appointment> appointmentRepository)
         {
+            doctorMapper = new DoctorMapper();
+            specialityMapper = new SpecialityMapper();
             _doctorRepository = doctorRepository;
             _specialityRepository = specialityRepository;
             _doctorSpecialityRepository = doctorSpecialityRepository;
+            _userRepository = userRepository;
+            _otherContextFunctionalities = otherContextFunctionities;
+            _encryptionService = encryptionService;
+            _mapper = mapper;
+            _appointmentRepository = appointmentRepository;
 
         }
 
-        public async Task<Doctor> GetDoctByName(string name)
+        public async Task<Doctor> AddDoctor(DoctorAddRequestDto doctor)
         {
-            var doctors = await _doctorRepository.GetAll();
-            var doctor = doctors.FirstOrDefault(d => d.Name == name);
-            if (doctor == null)
+            try
             {
-                throw new Exception($"No doctor with name {name} found.");
-
-            }
-            return doctor;
-        }
-
-        public async Task<ICollection<Doctor>> GetDoctorsBySpeciality(string speciality)
-        {
-            var allSpecialities = await _specialityRepository.GetAll();
-            var matchingSpeciality = allSpecialities.FirstOrDefault(s => s.Name.Equals(speciality));
-
-            if (matchingSpeciality == null)
-                throw new Exception("Speciality not found.");
-
-            if (matchingSpeciality.DoctorSpecialities == null || matchingSpeciality.DoctorSpecialities.Count() == 0)
-                throw new Exception("No doctors found under this speciality.");
-
-            return matchingSpeciality.DoctorSpecialities
-                                    .Select(ds => ds.Doctor)
-                                    .ToList();
-        }
-
-
-        public async Task<Doctor> AddDoctor(DoctorAddRequestDto dto)
-        {
-            var doctor = new Doctor
-            {
-                Name = dto.Name,
-                YearsOfExperience = dto.YearsOfExperience,
-                DoctorSpecialities = new List<DoctorSpeciality>()
-            };
-
-            foreach (var add_speciality in dto.Specialities)
-            {
-                var specialities = await _specialityRepository.GetAll();
-                var speciality = specialities.FirstOrDefault(s => s.Name == add_speciality.Name);
-                if (speciality != null)
+                var user = _mapper.Map<DoctorAddRequestDto, User>(doctor);
+                var encryptedData = await _encryptionService.EncryptData(new EncryptModel
                 {
-                    DoctorSpeciality doctorspeciality = new DoctorSpeciality(doctor.Id, speciality.Id, doctor, speciality);
+                    Data = doctor.Password
+                });
+                user.Password = encryptedData.EncryptedData;
+                user.HashKey = encryptedData.HashKey;
+                user.Role = "Doctor";
+                var newDoctor = doctorMapper.MapDoctorAddRequestDoctor(doctor);
 
-                    doctor.DoctorSpecialities.Add(doctorspeciality);
+                user.Doctor = newDoctor;
+                newDoctor.User = user;
+                user = await _userRepository.Add(user);
+
+                if (newDoctor == null)
+                    throw new Exception("Could not add doctor");
+                if (doctor.Specialities.Count() > 0)
+                {
+                    int[] specialities = await MapAndAddSpeciality(doctor);
+                    for (int i = 0; i < specialities.Length; i++)
+                    {
+                        var doctorSpeciality = specialityMapper.MapDoctorSpeciality(newDoctor.Id, specialities[i]);
+                        doctorSpeciality = await _doctorSpecialityRepository.Add(doctorSpeciality);
+                    }
                 }
 
+                return newDoctor;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
 
-            return await _doctorRepository.Add(doctor);
+        }
+
+        public async Task<int[]> MapAndAddSpeciality(DoctorAddRequestDto doctor)
+        {
+            int[] specialityIds = new int[doctor.Specialities.Count()];
+            IEnumerable<Speciality> existingSpecialities = null;
+            try
+            {
+                existingSpecialities = await _specialityRepository.GetAll();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            int count = 0;
+            foreach (var item in doctor.Specialities)
+            {
+                Speciality speciality = null;
+                if (existingSpecialities != null)
+                    speciality = existingSpecialities.FirstOrDefault(s => s.Name.ToLower() == item.Name.ToLower());
+                if (speciality == null)
+                {
+                    speciality = specialityMapper.MapSpecialityAddRequestDoctor(item);
+                    speciality = await _specialityRepository.Add(speciality);
+                }
+                specialityIds[count] = speciality.Id;
+                count++;
+            }
+            return specialityIds;
+        }
+
+        public Task<Doctor> GetDoctByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<ICollection<DoctorsBySpecialityResponseDto>> GetDoctorsBySpeciality(string speciality)
+        {
+            var result = await _otherContextFunctionalities.GetDoctorsBySpeciality(speciality);
+            return result;
+        }
+
+        public async Task<ICollection<Appointment>> ViewAppointments(int doctor_id)
+        {
+            var doctor = await _doctorRepository.GetByID(doctor_id);
+            if (doctor == null)
+            {
+                throw new Exception("Doctor not found");
+            }
+            if (doctor.Appointments == null || !doctor.Appointments.Any())
+            {
+                throw new Exception("No appointments found");
+            }
+            return doctor.Appointments.ToList();
         }
     }
+    
+
 }

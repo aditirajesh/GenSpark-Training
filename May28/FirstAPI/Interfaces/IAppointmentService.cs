@@ -1,13 +1,10 @@
 using FirstAPI.Models;
+using FirstAPI.Models.DTOs;
 namespace FirstAPI.Interfaces
 {
     public interface IAppointmentService
     {
-        int AddAppointment();
-        Appointment DeleteAppointment(int id);
-
-        void GetAppointment(int id);
-
-        void GetAllAppointments();
+        public Task<Appointment> MakeAppointment(AppointmentAddRequestDto dto);
+        public Task<Appointment> CancelAppointment(int appointment_id);
     }
 }

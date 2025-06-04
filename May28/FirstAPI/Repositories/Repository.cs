@@ -15,7 +15,7 @@ namespace FirstAPI.Repositories
         public abstract Task<T> GetByID(K id);
         public abstract Task<IEnumerable<T>> GetAll();
 
-        public async Task<T> Add(T item)
+        public virtual async Task<T> Add(T item)
         {
             _clinicContext.Add(item);
             await _clinicContext.SaveChangesAsync();
@@ -36,15 +36,16 @@ namespace FirstAPI.Repositories
         }
         public async Task<T> Update(K id, T item)
         {
-            var update_item = await GetByID(id);
-            if (update_item != null)
+            var existingItem = await _clinicContext.Set<T>().FindAsync(id);
+            if (existingItem == null)
             {
-                _clinicContext.Entry(update_item).CurrentValues.SetValues(item);
-                await _clinicContext.SaveChangesAsync();
-                return update_item;
+                throw new Exception("Item not found");
             }
-            throw new Exception("Item not found");
 
+            _clinicContext.Entry(existingItem).CurrentValues.SetValues(item);
+            await _clinicContext.SaveChangesAsync();
+            return existingItem;
         }
+
     }
 }

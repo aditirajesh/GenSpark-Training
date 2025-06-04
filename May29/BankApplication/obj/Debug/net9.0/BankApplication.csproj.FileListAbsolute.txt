@@ -7,7 +7,6 @@
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/BankApplication.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/BankApplication.pdb
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/Humanizer.dll
-/Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/Microsoft.Bcl.AsyncInterfaces.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/Microsoft.Build.Locator.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/Microsoft.CodeAnalysis.dll
@@ -34,15 +33,18 @@
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/Mono.TextTemplating.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/Npgsql.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/OpenAI.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/System.ClientModel.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/System.CodeDom.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/System.Composition.AttributedModel.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/System.Composition.Convention.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/System.Composition.Hosting.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/System.Composition.Runtime.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/System.Composition.TypedParts.dll
+/Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/System.Memory.Data.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.resources.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.resources.dll
 /Users/aditirajesh/Desktop/GenSpark-Training/May29/BankApplication/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.resources.dll
