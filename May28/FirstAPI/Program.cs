@@ -105,9 +105,20 @@ builder.Services.AddSingleton<DoctorMapper>();
 builder.Services.AddSingleton<SpecialityMapper>();
 builder.Services.AddSingleton<AppointmentMapper>();
 builder.Services.AddScoped<CustomExceptionFilter>();
-
-
 #endregion
+
+#region CORS
+builder.Services.AddCors(options=>{
+    options.AddDefaultPolicy(policy=>{
+        policy.WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
+});
+#endregion //only allow requests from the specified port, but any method can be passed within that request
+
+builder.Services.AddSignalR();
 
 #region AuthorizationPolicy 
 builder.Services.AddScoped<IAuthorizationHandler, MinimumExperienceHandler>();
@@ -129,8 +140,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseRouting();
+app.UseCors();
+
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapHub<NotificationHub>("/notificationhub");
+
 app.MapControllers();
 
 app.Run();
