@@ -1,0 +1,279 @@
+body {
+    padding: 20px;
+    font-family: "Roboto", sans-serif;
+    color: #666666;
+    margin: 10px;
+
+}
+
+h1 {
+    color: #333333;
+    font-family: "Poppings", sans-serif;
+    font-size: 48px;
+    font-weight:bold;
+
+}
+
+h2 {
+    font-weight: medium;
+    font-family: 'Poppins';
+    font-size: 24px;
+    color:#333333;
+    transition: 0.2s ease-in;
+}
+
+button {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: medium;
+    background-color: #CCCCCC;
+    color: #666666;  
+    align-items: center;  
+    padding: 12px 24px; 
+    transition: 0.2s ease-in;
+    display: inline-flex;  
+    justify-content: center;
+    cursor:pointer;
+    border-radius: 9px;
+ 
+}
+
+button:hover {
+    color: #E0E0E0
+}
+
+header {
+    background-color: #F5F5F5;
+    color: #333333;
+    border: 2px solid #CCCCCC;
+    display: flex;
+    gap:20px;
+    left: 20px;
+    top:10px;
+    padding: 10px;
+}
+
+header h2 {
+    margin-right: 35%;
+    font-size: 30px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #000623;
+  margin-right: 50%;
+  font-weight: 600;
+}
+
+.logo svg {
+  width: 100px;
+  height: 100px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #0f172a;
+  font-size: 20px;
+}
+
+.banner {
+    margin-top: 50px;
+    background-color: #F5F5F5;
+    border: 2px solid #CCCCCC;
+    display: flex;
+    padding: 60px;
+    height: 250px;
+    justify-content: space-between;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.banner .text {
+  flex: 1.5;
+  margin: 10px 10px;
+}
+.banner .text h1 {
+  font-size: 48px;
+  margin: 0;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.banner .text h2 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 20px 0;
+  line-height: 1.5;
+}
+
+.banner .image {
+  flex: 1;
+  background-color: #cccccc; 
+  width: 100%;
+  height: 250px;
+  max-width: 300px; 
+}
+
+#book_button {
+    width: 250px;
+    height: 50px;
+    align-items: center;
+
+}
+
+.services {
+    text-align: center;
+    margin-top:50px;
+}
+
+.cards {
+    display:flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.card {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    width: 250px;
+    height: 200px;
+}
+
+.testimonials {
+    background-color: #F5F5F5;
+    text-align:center;
+    padding:20px;
+}
+
+.testimonial_card {
+    display: flex;
+    margin: 20px 200px;
+    padding:15px;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.testimonial_card svg{
+    flex: 1;
+    width: 70px;
+    height:45px;
+    margin-top:10px;
+}
+
+.testimonial_card h2 {
+    flex: 4;
+}
+
+.clinic_hours {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding: 40px;
+  flex-wrap: wrap; 
+  
+}
+
+.timings1, .timings2 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 250px;
+}
+
+.timings1 h1, .timings2 h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.mon-fri, .saturday {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.mon-fri h2, .saturday h2 {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 4px 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    margin: 0;
+}
+
+header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+header h2 {
+    margin-right: 0;
+}
+
+.banner {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    margin-right: 0;
+}
+
+.banner .text {
+    margin: 10px 0;
+}
+
+.banner .image {
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+}
+
+.cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.card {
+    width: 90%;
+    height: auto;
+}
+
+.testimonial_card {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px;
+    gap: 10px;
+}
+
+.clinic_hours {
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+}
+
+.mon-fri, .saturday {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+}
+
+button {
+    width: 100%;
+  }
+}
