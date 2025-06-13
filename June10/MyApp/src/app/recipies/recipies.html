@@ -1,0 +1,13 @@
+@if (recipes().length > 0) {
+  <div>
+    <h1>Recipes!</h1>
+    @for (item of recipes(); track $index) {
+      <app-recipe [recipe]="item"></app-recipe>
+    }
+  </div>
+}
+@else {
+  <div>
+    <h1>No recipes found</h1>
+  </div>
+}
