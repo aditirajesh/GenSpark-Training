@@ -11,6 +11,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Threading.RateLimiting;
+using Serilog;
+using Serilog.Events;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -43,6 +45,38 @@ builder.Services.AddSwaggerGen(opt =>
         }
     });
 });
+
+builder.Host.UseSerilog((context, configuration) => 
+{
+    var isDevelopment = context.HostingEnvironment.IsDevelopment();
+    
+    configuration
+        .ReadFrom.Configuration(context.Configuration)
+        .Enrich.FromLogContext()
+        .Enrich.WithProperty("Application", "ExpenseTrackingSystem");
+    
+    if (isDevelopment)
+    {
+        // Pretty console for development
+        configuration.WriteTo.Console(outputTemplate: 
+            "[{Timestamp:HH:mm:ss} {Level:u3}] {SourceContext}{NewLine}" +
+            "    💬 {Message:lj}{NewLine}" +
+            "    📊 {Properties:j}{NewLine}");
+    }
+    else
+    {
+        // Structured for production
+        configuration.WriteTo.Console();
+    }
+    
+    // Always write to file (single line for parsing)
+    configuration.WriteTo.File(
+        path: "Logs/expense-tracking-.log",
+        rollingInterval: RollingInterval.Day,
+        retainedFileCountLimit: 30,
+        outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} {Level:u3}] {SourceContext}: {Message:lj} {Properties:j}{NewLine}");
+});
+
 builder.Services.AddControllers()
                 .AddJsonOptions(opts =>
                 {
@@ -70,6 +104,8 @@ builder.Services.AddTransient<IEncryptionService, EncryptionService>();
 builder.Services.AddTransient<ITokenService, TokenService>();
 builder.Services.AddTransient<IAuthenticationService, AuthenticationService>();
 builder.Services.AddTransient<IAuditLogService, AuditLogService>();
+builder.Services.AddTransient<IReportService, ReportService>();
+
 
 #endregion
 
@@ -116,6 +152,28 @@ builder.Services.AddRateLimiter(options =>
 
 var app = builder.Build();
 
+app.UseSerilogRequestLogging(options =>
+{
+    options.MessageTemplate = "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms";
+    options.GetLevel = (httpContext, elapsed, ex) => ex != null 
+        ? LogEventLevel.Error 
+        : httpContext.Response.StatusCode > 499 
+            ? LogEventLevel.Error 
+            : LogEventLevel.Information;
+    
+    options.EnrichDiagnosticContext = (diagnosticContext, httpContext) =>
+    {
+        diagnosticContext.Set("RequestHost", httpContext.Request.Host.Value);
+        diagnosticContext.Set("RequestScheme", httpContext.Request.Scheme);
+        diagnosticContext.Set("UserAgent", httpContext.Request.Headers["User-Agent"].FirstOrDefault());
+        
+        if (httpContext.User.Identity?.IsAuthenticated == true)
+        {
+            diagnosticContext.Set("UserName", httpContext.User.Identity.Name);
+        }
+    };
+});
+
 
 if (app.Environment.IsDevelopment())
 {
@@ -123,11 +181,24 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseHttpsRedirection();
 app.UseRateLimiter();
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+try
+{
+    Log.Information("Starting ExpenseTrackingSystem web host");
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Host terminated unexpectedly");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
 

@@ -143,3 +143,12 @@
 /Users/aditirajesh/Desktop/GenSpark-Training/BackendProject/ExpenseTrackingSystem/obj/Debug/net9.0/ExpenseTrackingSystem.pdb
 /Users/aditirajesh/Desktop/GenSpark-Training/BackendProject/ExpenseTrackingSystem/obj/Debug/net9.0/ExpenseTrackingSystem.genruntimeconfig.cache
 /Users/aditirajesh/Desktop/GenSpark-Training/BackendProject/ExpenseTrackingSystem/obj/Debug/net9.0/ref/ExpenseTrackingSystem.dll
+/Users/aditirajesh/Desktop/GenSpark-Training/BackendProject/ExpenseTrackingSystem/bin/Debug/net9.0/Serilog.dll
+/Users/aditirajesh/Desktop/GenSpark-Training/BackendProject/ExpenseTrackingSystem/bin/Debug/net9.0/Serilog.AspNetCore.dll
+/Users/aditirajesh/Desktop/GenSpark-Training/BackendProject/ExpenseTrackingSystem/bin/Debug/net9.0/Serilog.Extensions.Hosting.dll
+/Users/aditirajesh/Desktop/GenSpark-Training/BackendProject/ExpenseTrackingSystem/bin/Debug/net9.0/Serilog.Extensions.Logging.dll
+/Users/aditirajesh/Desktop/GenSpark-Training/BackendProject/ExpenseTrackingSystem/bin/Debug/net9.0/Serilog.Formatting.Compact.dll
+/Users/aditirajesh/Desktop/GenSpark-Training/BackendProject/ExpenseTrackingSystem/bin/Debug/net9.0/Serilog.Settings.Configuration.dll
+/Users/aditirajesh/Desktop/GenSpark-Training/BackendProject/ExpenseTrackingSystem/bin/Debug/net9.0/Serilog.Sinks.Console.dll
+/Users/aditirajesh/Desktop/GenSpark-Training/BackendProject/ExpenseTrackingSystem/bin/Debug/net9.0/Serilog.Sinks.Debug.dll
+/Users/aditirajesh/Desktop/GenSpark-Training/BackendProject/ExpenseTrackingSystem/bin/Debug/net9.0/Serilog.Sinks.File.dll
