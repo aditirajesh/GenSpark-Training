@@ -3,6 +3,7 @@ import { ProductService, Product } from '../services/product.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { debounceTime, distinctUntilChanged, Subject, switchMap, tap } from 'rxjs';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-home',
@@ -20,11 +21,19 @@ export class HomeComponent implements OnInit {
   skip = 0;
   total = 0;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService,
+    private router: Router
+  ) {}
 
   handleSearchProducts() {
     this.searchSubject.next(this.searchString);
   }
+
+   viewProductDetail(productId: number): void {
+    this.router.navigate(['/products', productId]);
+  }
+
+
 
   ngOnInit(): void {
     this.searchSubject.pipe(
