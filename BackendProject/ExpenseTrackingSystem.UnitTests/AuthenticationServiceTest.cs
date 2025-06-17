@@ -5,6 +5,7 @@ using ExpenseTrackingSystem.Models.DTOs;
 using ExpenseTrackingSystem.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 using System.Text;
@@ -16,6 +17,8 @@ using System.Text;
         private Mock<IRepository<string, User>> _userRepositoryMock;
         private Mock<ITokenService> _tokenServiceMock;
         private AuthenticationService _authService;
+        private Mock<ILogger<AuthenticationService>> _mockLogger;
+    
 
         [SetUp]
         public void Setup()
@@ -23,7 +26,8 @@ using System.Text;
             _encryptionServiceMock = new Mock<IEncryptionService>();
             _userRepositoryMock = new Mock<IRepository<string, User>>();
             _tokenServiceMock = new Mock<ITokenService>();
-            _authService = new AuthenticationService(_encryptionServiceMock.Object, _userRepositoryMock.Object, _tokenServiceMock.Object);
+            _mockLogger = new Mock<ILogger<AuthenticationService>>();
+            _authService = new AuthenticationService(_encryptionServiceMock.Object, _userRepositoryMock.Object, _tokenServiceMock.Object,_mockLogger.Object);
         }
 
         [Test]

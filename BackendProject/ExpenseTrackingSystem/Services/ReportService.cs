@@ -46,7 +46,6 @@ namespace ExpenseTrackingSystem.Services
                 Timestamp = DateTimeOffset.UtcNow
             });
 
-            // Use search functionality to get expenses by date range and user
             _logger.LogDebug("Creating search model for date range filtering");
             var searchModel = new ExpenseSearchModel
             {
@@ -381,14 +380,12 @@ namespace ExpenseTrackingSystem.Services
                 throw new UnauthorizedAccessException("Invalid requesting user.");
             }
 
-            // If no target username specified, use requesting user
             if (string.IsNullOrEmpty(targetUsername))
             {
                 _logger.LogDebug("No target username specified, using requesting user {RequestingUser}", requestingUser);
                 return requestingUser;
             }
 
-            // If admin, can access any user's data
             if (requestingUserData.Role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
             {
                 _logger.LogDebug("Admin user {RequestingUser} accessing data for {TargetUser}", requestingUser, targetUsername);
@@ -402,7 +399,6 @@ namespace ExpenseTrackingSystem.Services
                 return targetUsername;
             }
 
-            // Non-admin users can only access their own data
             if (!requestingUser.Equals(targetUsername, StringComparison.OrdinalIgnoreCase))
             {
                 _logger.LogWarning("Unauthorized access attempt: {RequestingUser} tried to access {TargetUser}'s data", 

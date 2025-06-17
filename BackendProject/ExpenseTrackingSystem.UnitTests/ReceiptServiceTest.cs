@@ -4,6 +4,7 @@ using ExpenseTrackingSystem.Models;
 using ExpenseTrackingSystem.Models.DTOs;
 using ExpenseTrackingSystem.Services;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 using System.Text;
@@ -18,7 +19,8 @@ namespace ExpenseTrackingSystem.Tests
         private Mock<IRepository<string, User>> _userRepositoryMock;
         private Mock<IAuditLogService> _auditLogServiceMock;
         private ReceiptService _receiptService;
-        private readonly string _testStoragePath = Path.Combine(Path.GetTempPath(), "test_receipts");
+        private Mock<ILogger<ReceiptService>> _mockLogger;
+        private string _testStoragePath = Path.Combine(Path.GetTempPath(), "test_receipts");
 
         [SetUp]
         public void Setup()
@@ -27,12 +29,14 @@ namespace ExpenseTrackingSystem.Tests
             _expenseRepositoryMock = new Mock<IRepository<Guid, Expense>>();
             _userRepositoryMock = new Mock<IRepository<string, User>>();
             _auditLogServiceMock = new Mock<IAuditLogService>();
+            _mockLogger = new Mock<ILogger<ReceiptService>>();
             
             _receiptService = new ReceiptService(
                 _receiptRepositoryMock.Object,
                 _expenseRepositoryMock.Object,
                 _userRepositoryMock.Object,
                 _auditLogServiceMock.Object,
+                _mockLogger.Object,
                 _testStoragePath);
         }
 

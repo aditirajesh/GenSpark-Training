@@ -3,6 +3,7 @@ using ExpenseTrackingSystem.Interfaces;
 using ExpenseTrackingSystem.Models;
 using ExpenseTrackingSystem.Models.DTOs;
 using ExpenseTrackingSystem.Services;
+using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 
@@ -18,6 +19,7 @@ namespace ExpenseTrackingSystem.Tests
         private Mock<IReceiptService> _receiptServiceMock;
         private Mock<IRepository<Guid, Receipt>> _receiptRepositoryMock;
         private UserService _userService;
+        private Mock<ILogger<UserService>> _mockLogger;
 
         [SetUp]
         public void Setup()
@@ -28,6 +30,7 @@ namespace ExpenseTrackingSystem.Tests
             _expenseRepositoryMock = new Mock<IRepository<Guid, Expense>>();
             _receiptServiceMock = new Mock<IReceiptService>();
             _receiptRepositoryMock = new Mock<IRepository<Guid, Receipt>>();
+            _mockLogger = new Mock<ILogger<UserService>>();
             
             // ✅ Updated constructor to match new UserService signature
             _userService = new UserService(
@@ -36,7 +39,8 @@ namespace ExpenseTrackingSystem.Tests
                 _auditLogServiceMock.Object,
                 _expenseRepositoryMock.Object,
                 _receiptServiceMock.Object,
-                _receiptRepositoryMock.Object);
+                _receiptRepositoryMock.Object,
+                _mockLogger.Object);
         }
 
         [Test]

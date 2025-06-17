@@ -4,6 +4,7 @@ using ExpenseTrackingSystem.Models;
 using ExpenseTrackingSystem.Models.DTOs;
 using ExpenseTrackingSystem.Services;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 
@@ -17,6 +18,7 @@ namespace ExpenseTrackingSystem.Tests
         private Mock<IReceiptService> _receiptServiceMock;
         private Mock<IAuditLogService> _auditLogServiceMock;
         private ExpenseService _expenseService;
+        private Mock<ILogger<ExpenseService>> _mockLogger;
 
         [SetUp]
         public void Setup()
@@ -25,12 +27,14 @@ namespace ExpenseTrackingSystem.Tests
             _userRepositoryMock = new Mock<IRepository<string, User>>();
             _receiptServiceMock = new Mock<IReceiptService>();
             _auditLogServiceMock = new Mock<IAuditLogService>();
+            _mockLogger = new Mock<ILogger<ExpenseService>>();
             
             _expenseService = new ExpenseService(
                 _expenseRepositoryMock.Object,
                 _userRepositoryMock.Object,
                 _receiptServiceMock.Object,
-                _auditLogServiceMock.Object);
+                _auditLogServiceMock.Object,
+                _mockLogger.Object);
         }
 
         [Test]
