@@ -1,0 +1,17 @@
+.about-container {
+      max-width: 800px;
+      margin: 0 auto;
+}
+
+.about-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+}
+
+h1 {
+      color: #333;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+}
+

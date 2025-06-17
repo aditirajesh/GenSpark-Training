@@ -10,11 +10,12 @@ export class ProductService{
         return this.http.get('https://dummyjson.com/products/'+id)
     }
 
-    getAllProducts():Observable<any []>{
-        return this.http.get<any[]>('https://dummyjson.com/products')
-        .pipe(catchError((error) => {
-            console.error('Error fetching products:', error);
-            return throwError(() => error);
-        }))
+    getAllProducts():Observable<any[]>{
+        return this.http.get<any[]>('https://dummyjson.com/products');
+    }
+
+    getProductSearchResult(searchData:string,limit:number=10,skip:number=10)
+    {
+        return this.http.get(`https://dummyjson.com/products/search?q=${searchData}&limit=${limit}&skip=${skip}`)
     }
 }

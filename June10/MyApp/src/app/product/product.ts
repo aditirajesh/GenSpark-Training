@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { ProductModel } from '../models/product';
 import { CurrencyPipe } from '@angular/common';
@@ -11,8 +11,15 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class Product {
 @Input() product:ProductModel|null = new ProductModel();
+@Output() addToCart:EventEmitter<Number> = new EventEmitter<Number>();
 private productService = inject(ProductService);
 
+handleBuyClick(pid:Number|undefined){
+  if(pid)
+  {
+      this.addToCart.emit(pid);
+  }
+}
 constructor(){
     // this.productService.getProduct(1).subscribe(
     //   {

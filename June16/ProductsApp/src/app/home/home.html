@@ -1,0 +1,25 @@
+<div class="home-container">
+      <div class="search-container">
+        <input 
+          type="text" 
+          [(ngModel)]="searchString"
+          (input)="handleSearchProducts()"
+          placeholder="Search products..."
+          class="search-input"
+        >
+      </div>
+
+      <div *ngIf="products.length > 0" class="product-grid">
+        <div *ngFor="let product of products" class="product-card">
+          <img [src]="product.thumbnail" [alt]="product.title" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">{{product.title}}</h3>
+            <p class="product-price">${{product.price}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="!loading && products.length === 0 && searchString" class="no-results">
+        <p>No products found for "{{searchString}}"</p>
+      </div>
+    </div>
