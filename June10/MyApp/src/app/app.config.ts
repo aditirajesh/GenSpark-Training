@@ -1,18 +1,15 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
+// app.config.ts
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
-import { ProductService } from './services/product.service';
-import { UserService } from './services/UserService';
+import { AuthGuard } from './auth-guard';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(),
-    ProductService,
-    UserService,
+    provideHttpClient(withFetch()),
+    AuthGuard 
   ]
 };
