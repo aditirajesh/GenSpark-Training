@@ -1,0 +1,203 @@
+<div class="dashboard-container">
+  <div class="header">
+    <h1>DASHBOARD</h1>
+    <button class="btn btn-add" (click)="showAddForm = !showAddForm">
+      {{ showAddForm ? 'Cancel' : 'Add User' }}
+    </button>
+  </div>
+
+  <!-- Add User Form -->
+  <div class="add-user-form" *ngIf="showAddForm">
+    <h3>Add New User</h3>
+    <form [formGroup]="addUserForm" (ngSubmit)="onAddUser()">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" formControlName="firstName" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" formControlName="lastName" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Age</label>
+          <input type="number" formControlName="age" class="form-control">
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label>Gender</label>
+          <select formControlName="gender" class="form-control">
+            <option value="">Select Gender</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Role</label>
+          <select formControlName="role" class="form-control">
+            <option value="">Select Role</option>
+            <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>State</label>
+          <select formControlName="state" class="form-control">
+            <option value="">Select State</option>
+            <option *ngFor="let state of states" [value]="state">{{state}}</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" formControlName="email" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="text" formControlName="phone" class="form-control">
+        </div>
+      </div>
+      
+      <button type="submit" class="btn btn-primary" [disabled]="!addUserForm.valid">
+        Add User
+      </button>
+    </form>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters-section">
+    <h3>Filters</h3>
+    <div class="filters-row">
+      <div class="filter-group">
+        <label>Search</label>
+        <input 
+          type="text" 
+          [(ngModel)]="filterText" 
+          (input)="applyFilters()" 
+          placeholder="Search by name or email"
+          class="form-control">
+      </div>
+      
+      <div class="filter-group">
+        <label>Gender</label>
+        <select [(ngModel)]="selectedGender" (change)="applyFilters()" class="form-control">
+          <option value="">All Genders</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label>Role</label>
+        <select [(ngModel)]="selectedRole" (change)="applyFilters()" class="form-control">
+          <option value="">All Roles</option>
+          <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label>State</label>
+        <select [(ngModel)]="selectedState" (change)="applyFilters()" class="form-control">
+          <option value="">All States</option>
+          <option *ngFor="let state of states" [value]="state">{{state}}</option>
+        </select>
+      </div>
+      
+      <button class="btn btn-clear" (click)="clearFilters()">Clear Filters</button>
+    </div>
+    <p class="results-count">Showing {{filteredUsers.length}} of {{users.length}} users</p>
+  </div>
+
+  <!-- Charts Section -->
+  <div class="charts-container">
+    <!-- Gender Chart -->
+    <div class="chart-section">
+      <h2>Gender</h2>
+      <div class="pie-chart">
+        <div class="pie-chart-circle">
+          <div class="pie-slice female" 
+               [style.transform]="'rotate(' + (getGenderPercentage('male') * 3.6) + 'deg)'">
+          </div>
+          <div class="pie-center">
+            <span class="male-percent">{{getGenderPercentage('male')}}%</span>
+            <span class="female-percent">{{getGenderPercentage('female')}}%</span>
+          </div>
+        </div>
+        <div class="legend">
+          <div class="legend-item">
+            <span class="legend-color female-color"></span>
+            <span>Female ({{chartData.gender.female}})</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-color male-color"></span>
+            <span>Male ({{chartData.gender.male}})</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Role Chart -->
+    <div class="chart-section">
+      <h2>Role</h2>
+      <div class="bar-chart">
+        <div class="bar-container" *ngFor="let role of getRoleEntries()">
+          <div class="bar-label">{{role.key}}</div>
+          <div class="bar" 
+               [style.height.%]="(role.value / getMaxRoleCount()) * 100">
+            <span class="bar-value">{{role.value}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- State Map -->
+    <div class="chart-section full-width">
+      <h2>State Distribution</h2>
+      <div class="state-map">
+        <div class="top-states">
+          <h4>Top States by User Count:</h4>
+          <div class="state-list">
+            <div class="state-item" *ngFor="let state of getTopStates(10)">
+              <span class="state-name">{{state.key}}</span>
+              <span class="state-count">{{state.value}} users</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Users Table -->
+  <div class="users-table-section">
+    <h3>Users List</h3>
+    <div class="table-container">
+      <table class="users-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Role</th>
+            <th>State</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of filteredUsers">
+            <td>{{user.firstName}} {{user.lastName}}</td>
+            <td>{{user.age}}</td>
+            <td>{{user.gender}}</td>
+            <td>{{user.role}}</td>
+            <td>{{user.state}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
