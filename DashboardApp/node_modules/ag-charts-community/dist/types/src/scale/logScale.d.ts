@@ -1,0 +1,21 @@
+import { ContinuousScale } from './continuousScale';
+import type { ScaleFormatParams, ScaleTickParams } from './scale';
+export declare class LogScale extends ContinuousScale<number> {
+    static is(value: unknown): value is LogScale;
+    readonly type = "log";
+    protected defaultClamp: boolean;
+    constructor(d?: number[], r?: number[]);
+    toDomain(d: number): number;
+    base: number;
+    protected transform(x: any): number;
+    protected transformInvert(x: any): number;
+    private readonly log;
+    private readonly pow;
+    niceDomain(_ticks: ScaleTickParams<number>, domain?: number[]): number[];
+    ticks({ interval, tickCount }: ScaleTickParams<number>, domain?: number[], visibleRange?: [number, number]): {
+        ticks: number[];
+        count: number;
+    } | undefined;
+    tickFormatter({ specifier }: ScaleFormatParams<number>): (x: number) => string;
+    datumFormatter(params: ScaleFormatParams<number>): (x: number) => string;
+}

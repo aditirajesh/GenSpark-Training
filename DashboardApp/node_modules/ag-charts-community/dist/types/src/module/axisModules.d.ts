@@ -1,0 +1,15 @@
+import { type AxisModuleDefinition, type OptionsDefs } from 'ag-charts-core';
+import type { AgCategoryAxisOptions, AgContinuousTimeAxisOptions, AgGroupedCategoryAxisOptions, AgLogAxisOptions, AgNumberAxisOptions, AgUnitTimeAxisOptions } from 'ag-charts-types';
+export declare const numberAxisOptionsDefs: OptionsDefs<AgNumberAxisOptions>;
+export declare const logAxisOptionsDefs: OptionsDefs<AgLogAxisOptions>;
+export declare const timeAxisOptionsDefs: OptionsDefs<AgContinuousTimeAxisOptions>;
+export declare const categoryAxisOptionsDefs: OptionsDefs<AgCategoryAxisOptions>;
+export declare const groupedCategoryAxisOptionsDefs: OptionsDefs<AgGroupedCategoryAxisOptions>;
+export declare const unitTimeAxisOptionsDefs: OptionsDefs<AgUnitTimeAxisOptions>;
+export declare const timeAxisOptionsCompatibilityDefs: OptionsDefs<any>;
+export declare const NumberAxisModule: AxisModuleDefinition<AgNumberAxisOptions>;
+export declare const LogAxisModule: AxisModuleDefinition<AgLogAxisOptions>;
+export declare const TimeAxisModule: AxisModuleDefinition<AgContinuousTimeAxisOptions>;
+export declare const CategoryAxisModule: AxisModuleDefinition<AgCategoryAxisOptions>;
+export declare const GroupedCategoryAxisModule: AxisModuleDefinition<AgGroupedCategoryAxisOptions>;
+export declare const UnitTimeAxisModule: AxisModuleDefinition<AgUnitTimeAxisOptions>;

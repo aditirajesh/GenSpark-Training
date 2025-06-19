@@ -49,13 +49,9 @@ export class DashboardComponent implements OnInit {
   ) {
     this.addUserForm = this.fb.group({
       firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      age: ['', [Validators.required, Validators.min(1)]],
       gender: ['', Validators.required],
       role: ['', Validators.required],
       state: ['', Validators.required],
-      email: ['', [Validators.email]],
-      phone: ['']
     });
   }
 
@@ -70,13 +66,9 @@ export class DashboardComponent implements OnInit {
         this.users = response.users.map((user: any) => ({
           id: user.id,
           firstName: user.firstName,
-          lastName: user.lastName,
-          age: user.age,
           gender: user.gender,
           role: this.getRandomRole(),
           state: this.getRandomState(),
-          email: user.email,
-          phone: user.phone
         }));
         
         this.filteredUsers = [...this.users];
@@ -120,10 +112,7 @@ export class DashboardComponent implements OnInit {
   applyFilters() {
     this.filteredUsers = this.users.filter(user => {
       const matchesText = !this.filterText || 
-        user.firstName.toLowerCase().includes(this.filterText.toLowerCase()) ||
-        user.lastName.toLowerCase().includes(this.filterText.toLowerCase()) ||
-        user.email?.toLowerCase().includes(this.filterText.toLowerCase());
-      
+        user.firstName.toLowerCase().includes(this.filterText.toLowerCase())      
       const matchesGender = !this.selectedGender || user.gender === this.selectedGender;
       const matchesRole = !this.selectedRole || user.role === this.selectedRole;
       const matchesState = !this.selectedState || user.state === this.selectedState;
