@@ -6,6 +6,7 @@ import { Home } from './home/home';
 import { Profile } from './profile/profile';
 import { AuthGuard } from './auth-guard';
 import { UserList } from './user-list/user-list';
+import { FileUploadComponent } from './file-upload-component/file-upload-component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' }, // Add this line
@@ -17,5 +18,6 @@ export const routes: Routes = [
         { path: 'first', component: First }
     ]},
     { path: 'profile', component: Profile, canActivate: [AuthGuard] },
-    {path:'users',component:UserList}
+    {path:'users',component:UserList},
+    {path:'msg',component:FileUploadComponent}
 ];

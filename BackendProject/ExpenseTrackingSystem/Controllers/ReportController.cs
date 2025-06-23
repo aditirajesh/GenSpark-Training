@@ -5,7 +5,7 @@ using ExpenseTrackingSystem.Exceptions;
 using System.Security.Claims;
 using ExpenseTrackingSystem.Models.DTOs;
 using ExpenseTrackingSystem.Interfaces;
-using Microsoft.Extensions.Logging; // Add this using statement
+using Microsoft.Extensions.Logging;
 
 namespace ExpenseTrackingSystem.Controllers
 {
@@ -15,9 +15,9 @@ namespace ExpenseTrackingSystem.Controllers
     public class ReportsController : ControllerBase
     {
         private readonly IReportService _reportService;
-        private readonly ILogger<ReportsController> _logger; // Add this field
+        private readonly ILogger<ReportsController> _logger; 
 
-        public ReportsController(IReportService reportService, ILogger<ReportsController> logger) // Add logger parameter
+        public ReportsController(IReportService reportService, ILogger<ReportsController> logger) 
         {
             _reportService = reportService;
             _logger = logger; // Assign logger
@@ -391,48 +391,6 @@ namespace ExpenseTrackingSystem.Controllers
             {
                 _logger.LogError(ex, "Unexpected error generating current month summary for user {CurrentUser}", currentUser);
                 return StatusCode(500, new { message = "An error occurred while generating the current month summary.", details = ex.Message });
-            }
-        }
-
-        [HttpGet("my-categories")]
-        public async Task<ActionResult<List<CategoryBreakdownDto>>> GetMyCategories()
-        {
-            var currentUser = GetCurrentUsername();
-            using var scope = _logger.BeginScope("MyCategories by {CurrentUser}", currentUser);
-
-            _logger.LogInformation("My categories report requested by {CurrentUser} for last 30 days", currentUser);
-
-            try
-            {
-                var endDate = DateTime.Now;
-                var startDate = endDate.AddDays(-30);
-                
-                _logger.LogDebug("Generating category breakdown for user {CurrentUser} from {StartDate} to {EndDate}", 
-                    currentUser, startDate, endDate);
-                
-                var report = await _reportService.GetCategoryBreakdownAsync(currentUser, startDate, endDate);
-                
-                _logger.LogInformation("My categories report generated successfully for user {CurrentUser} - {CategoryCount} categories found", 
-                    currentUser, report.Count);
-                
-                return Ok(report);
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                _logger.LogWarning("My categories report unauthorized for user {CurrentUser}: {ErrorMessage}", 
-                    currentUser, ex.Message);
-                return Unauthorized(new { message = ex.Message });
-            }
-            catch (EntityNotFoundException ex)
-            {
-                _logger.LogWarning("My categories report not found for user {CurrentUser}: {ErrorMessage}", 
-                    currentUser, ex.Message);
-                return NotFound(new { message = ex.Message });
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Unexpected error generating my categories report for user {CurrentUser}", currentUser);
-                return StatusCode(500, new { message = "An error occurred while generating your category breakdown.", details = ex.Message });
             }
         }
 

@@ -6,6 +6,7 @@ import { routes } from './app.routes';
 import { AuthGuard } from './auth-guard';
 import { userReducer } from './ngrx/user.reducer';
 import { provideState, provideStore } from '@ngrx/store';
+import { BulkInsertService } from './services/BulkInsertService';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,6 +15,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     provideStore(),
     provideState('user', userReducer),
-    AuthGuard 
+    AuthGuard,
+    BulkInsertService
   ]
 };

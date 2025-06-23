@@ -80,6 +80,8 @@ builder.Services.AddTransient<ITokenService, TokenService>();
 builder.Services.AddTransient<IAuthenticationService, AuthenticationService>();
 builder.Services.AddTransient<IDoctorService, DoctorService>();
 builder.Services.AddTransient<IAppointmentService, AppointmentService>();
+builder.Services.AddTransient<IFileProcessingService, FileProcessingService>();
+
 #endregion
 
 #region AuthenticationFilter
@@ -108,14 +110,16 @@ builder.Services.AddScoped<CustomExceptionFilter>();
 #endregion
 
 #region CORS
-builder.Services.AddCors(options=>{
-    options.AddDefaultPolicy(policy=>{
-        policy.WithOrigins("http://localhost:5173")
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials();
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     });
 });
+
 #endregion //only allow requests from the specified port, but any method can be passed within that request
 
 builder.Services.AddSignalR();

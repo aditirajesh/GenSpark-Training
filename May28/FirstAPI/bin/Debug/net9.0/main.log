@@ -93,3 +93,13 @@ System.IO.IOException: Failed to bind to address http://127.0.0.1:7240: address 
 2025-06-05 13:20:29,374 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
 2025-06-05 13:20:29,375 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
 2025-06-05 13:20:29,375 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/aditirajesh/Desktop/GenSpark-Training/May28/FirstAPI
+2025-06-23 10:33:26,247 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:7240
+2025-06-23 10:33:26,283 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5173
+2025-06-23 10:33:26,286 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-23 10:33:26,286 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-23 10:33:26,286 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/aditirajesh/Desktop/GenSpark-Training/May28/FirstAPI
+2025-06-23 10:55:44,875 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:7240
+2025-06-23 10:55:44,924 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5173
+2025-06-23 10:55:44,927 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-23 10:55:44,928 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-23 10:55:44,928 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/aditirajesh/Desktop/GenSpark-Training/May28/FirstAPI

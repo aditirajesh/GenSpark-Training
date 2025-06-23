@@ -15,6 +15,9 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="users">Users</a>
       </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="msg">Notification</a>
+      </li>
       <!-- Only show these if user is logged in and usrname exists -->
       @if(usrname) {
         <li class="nav-item">
@@ -25,6 +28,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="msg">Notification</a>
         </li>
       }
     </ul>
