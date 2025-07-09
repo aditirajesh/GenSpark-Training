@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  api:
+    image: api:latest
+    build: ./api
+    networks:
+      - appnet
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+
+  web:
+    image: web:latest
+    build: ./web
+    ports:
+      - "8080:80"
+    networks:
+      - appnet
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+
+networks:
+  appnet:

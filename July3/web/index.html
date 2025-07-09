@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Frontend with API Call</title>
+  <script>
+    async function loadData() {
+      const res = await fetch('/api');
+      const data = await res.json();
+      document.getElementById('apiResponse').innerText = data.message;
+    }
+    window.onload = loadData;
+  </script>
+</head>
+<body>
+  <h1>Docker Swarm Network Example</h1> 
+  <p>API says: <span id="apiResponse">Loading...</span></p>
+</body>
+</html>
