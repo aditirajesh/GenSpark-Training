@@ -28,7 +28,7 @@ namespace ExpenseTrackingSystem.Controllers
         public ReceiptController(IReceiptService receiptService, ILogger<ReceiptController> logger,
                                 IRepository<Guid, Receipt> receiptRepository, IRepository<string, User> userRepository,
                                 ReceiptMapper receiptMapper, IRepository<Guid, Expense> expenseRepository,
-                                string storagePath = "/Users/aditirajesh/Desktop/GenSpark-Training/BackendProject/Receipts"
+                                string storagePath = "/Users/aditirajesh/Desktop/GenSpark-Training/Expenses_Receipts/Receipts"
                                 )
         {
             _receiptService = receiptService;

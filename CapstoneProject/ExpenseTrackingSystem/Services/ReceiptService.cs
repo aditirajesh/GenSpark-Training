@@ -22,7 +22,7 @@ namespace ExpenseTrackingSystem.Services
                               IRepository<string, User> userRepository,
                               IAuditLogService auditLogService,
                               ILogger<ReceiptService> logger, // Add logger parameter
-                              string storagePath = "/Users/aditirajesh/Desktop/GenSpark-Training/BackendProject/Receipts")
+                              string storagePath = "/Users/aditirajesh/Desktop/GenSpark-Training/Expenses_Receipts/Receipts")
         {
             _receiptRepository = receiptRepository;
             _expenseRepository = expenseRepository;
