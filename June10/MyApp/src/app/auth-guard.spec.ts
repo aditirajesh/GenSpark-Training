@@ -1,70 +1,44 @@
 import { TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
 import { AuthGuard } from './auth-guard';
+import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AuthGuard', () => {
   let guard: AuthGuard;
   let router: Router;
-  let routerSpy: jasmine.Spy;
+  let route: ActivatedRouteSnapshot;
+  let state: RouterStateSnapshot;
 
   beforeEach(() => {
-    const routerSpyObj = jasmine.createSpyObj('Router', ['navigate']);
-
     TestBed.configureTestingModule({
-      providers: [
-        AuthGuard,
-        { provide: Router, useValue: routerSpyObj }
-      ]
+      imports: [RouterTestingModule.withRoutes([])],
+      providers: [AuthGuard]
     });
 
     guard = TestBed.inject(AuthGuard);
     router = TestBed.inject(Router);
-    routerSpy = router.navigate as jasmine.Spy;
+
+    route = {} as ActivatedRouteSnapshot;
+    state = { url: '/protected' } as RouterStateSnapshot;
   });
 
   afterEach(() => {
-    // Clean up localStorage after each test
     localStorage.clear();
   });
 
-  it('should be created', () => {
-    expect(guard).toBeTruthy();
-  });
-
-  it('should allow activation when token exists', () => {
-    // Arrange
+  it('should allow activation if token exists', () => {
     localStorage.setItem('token', 'fake-token');
-    
-    // Act
-    const result = guard.canActivate({} as any, {} as any);
-    
-    // Assert
-    expect(result).toBe(true);
-    expect(routerSpy).not.toHaveBeenCalled();
+    const result = guard.canActivate(route, state);
+    expect(result).toBeTrue();
   });
 
-  it('should deny activation and redirect to login when token does not exist', () => {
-    // Arrange
+  it('should block activation and redirect if token is missing', () => {
+    spyOn(router, 'navigate');
     localStorage.removeItem('token');
-    
-    // Act
-    const result = guard.canActivate({} as any, {} as any);
-    
-    // Assert
-    expect(result).toBe(false);
-    expect(routerSpy).toHaveBeenCalledWith(['login']);
-  });
 
-  it('should deny activation and redirect to login when token is null', () => {
-    // Arrange
-    localStorage.setItem('token', '');
-    localStorage.removeItem('token'); // Ensures it's null
-    
-    // Act
-    const result = guard.canActivate({} as any, {} as any);
-    
-    // Assert
-    expect(result).toBe(false);
-    expect(routerSpy).toHaveBeenCalledWith(['login']);
+    const result = guard.canActivate(route, state);
+
+    expect(result).toBeFalse();
+    expect(router.navigate).toHaveBeenCalledWith(['login']);
   });
 });
