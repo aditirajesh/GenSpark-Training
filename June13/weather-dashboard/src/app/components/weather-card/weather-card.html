@@ -1,0 +1,38 @@
+<div class="weather-card" *ngIf="weatherData">
+  <div class="weather-header">
+    <div class="city-info">
+      <h3 class="city-name">{{ weatherData.city }}</h3>
+      <p class="country-name">{{ weatherData.country }}</p>
+    </div>
+    <div class="weather-icon">
+      <img 
+        [src]="getWeatherIconUrl(weatherData.icon)" 
+        [alt]="weatherData.description"
+        class="weather-icon-img"
+      />
+    </div>
+  </div>
+  
+  <div class="weather-content">
+    <div class="temperature-section">
+      <div class="temperature">
+        {{ weatherData.temperature }}°C
+      </div>
+      <div class="description">
+        {{ capitalizeDescription(weatherData.description) }}
+      </div>
+    </div>
+    
+    <div class="weather-details">
+      <div class="detail-item">
+        <div class="detail-label">Humidity</div>
+        <div class="detail-value">{{ weatherData.humidity }}%</div>
+      </div>
+      
+      <div class="detail-item">
+        <div class="detail-label">Wind Speed</div>
+        <div class="detail-value">{{ weatherData.windSpeed }} m/s</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="search-container">
+  <h2>Weather Search</h2>
+  
+  <form (ngSubmit)="onSearch()" class="search-form">
+    <div class="input-group">
+      <input 
+        type="text"
+        [formControl]="cityControl"
+        placeholder="Enter city name"
+        (keypress)="onKeyPress($event)"
+        class="search-input"
+        [class.error]="cityControl.hasError('required') && cityControl.touched"
+      />
+      
+      <button 
+        type="submit"
+        [disabled]="cityControl.invalid || (loading$ | async)"
+        class="search-button"
+      >
+        <span *ngIf="!(loading$ | async)">Search</span>
+        <span *ngIf="loading$ | async">Searching...</span>
+      </button>
+    </div>
+    
+    <div class="error-message" *ngIf="cityControl.hasError('required') && cityControl.touched">
+      City name is required
+    </div>
+  </form>
+  
+  <button 
+    type="button"
+    (click)="onClear()"
+    *ngIf="hasWeatherData$ | async"
+    class="clear-button"
+  >
+    Clear
+  </button>
+</div>

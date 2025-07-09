@@ -1,0 +1,152 @@
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+  padding: 20px;
+}
+
+.dashboard-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  margin: 0 0 10px 0;
+  font-weight: 300;
+}
+
+.dashboard-header p {
+  font-size: 1.1rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.dashboard-main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #74b9ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-container p {
+  margin: 0;
+  color: #666;
+}
+
+.error-container {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-left: 4px solid #ff6b6b;
+}
+
+.error-container h3 {
+  color: #ff6b6b;
+  margin: 0 0 12px 0;
+}
+
+.error-container p {
+  color: #666;
+  margin: 0;
+}
+
+.welcome-container {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.welcome-container h2 {
+  color: #333;
+  margin: 0 0 12px 0;
+  font-size: 1.8rem;
+}
+
+.welcome-container p {
+  color: #666;
+  margin: 0 0 24px 0;
+  font-size: 1.1rem;
+}
+
+.demo-cities {
+  margin-top: 24px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.demo-cities h3 {
+  color: #333;
+  margin: 0 0 16px 0;
+  font-size: 1.2rem;
+}
+
+.demo-city-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.demo-city-btn {
+  padding: 8px 16px;
+  background: white;
+  border: 2px solid #74b9ff;
+  border-radius: 6px;
+  color: #74b9ff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.demo-city-btn:hover {
+  background: #74b9ff;
+  color: white;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 16px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+  
+  .demo-city-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .demo-city-btn {
+    width: 200px;
+  }
+}
