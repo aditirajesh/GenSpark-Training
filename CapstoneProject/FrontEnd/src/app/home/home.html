@@ -1,0 +1,218 @@
+<div class="home-container">
+  <!-- Header Navigation -->
+  <header class="header">
+    <nav class="nav-container">
+      <div class="nav-left">
+        <a routerLink="/home" class="nav-item active">
+          <i class="icon-home"></i>
+          <span>Home</span>
+        </a>
+        <a routerLink="/expenses" class="nav-item">
+          <i class="icon-expenses"></i>
+          <span>Expenses</span>
+        </a>
+        <a routerLink="/reports" class="nav-item">
+          <i class="icon-reports"></i>
+          <span>Reports</span>
+        </a>
+        <a routerLink="/profile" class="nav-item">
+          <i class="icon-profile"></i>
+          <span>Profile</span>
+        </a>
+      </div>
+      
+      <div class="nav-right">
+        <button class="notification-btn">
+          <i class="icon-bell"></i>
+        </button>
+        <button class="logout-btn" (click)="logout()">
+          Logout
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="content-grid">
+      
+      <!-- Left Side - Welcome Card and Action Buttons -->
+      <div class="welcome-section">
+        <div class="welcome-card">
+          <div class="welcome-content">
+            <h1 class="welcome-title">
+              Welcome back,<br>
+              <span class="username">{{ displayUsername }}</span>
+            </h1>
+            
+            <div class="spending-amount">
+              <span class="currency">₹</span>
+              <span class="amount" *ngIf="!isLoadingData">{{ monthlySpending | number:'1.0-0' }}</span>
+              <span class="amount" *ngIf="isLoadingData">
+                <div class="loading-spinner-inline"></div>
+              </span>
+            </div>
+            
+            <p class="spending-subtitle">total spent this month</p>
+          </div>
+        </div>
+        
+        <!-- Action Buttons - Moved outside and enlarged -->
+        <div class="action-buttons-container">
+          <button 
+            class="action-btn add-expense-btn extra-large-btn" 
+            (click)="navigateToAddExpense()"
+            [disabled]="isNavigatingToAddExpense"
+          >
+            <div class="btn-spinner" *ngIf="isNavigatingToAddExpense"></div>
+            <i class="icon-plus" *ngIf="!isNavigatingToAddExpense"></i>
+            <span>{{ isNavigatingToAddExpense ? 'Loading...' : 'Add expense' }}</span>
+          </button>
+          
+          <button 
+            class="action-btn view-reports-btn extra-large-btn" 
+            (click)="navigateToReports()"
+            [disabled]="isNavigatingToReports"
+          >
+            <div class="btn-spinner" *ngIf="isNavigatingToReports"></div>
+            <i class="icon-document" *ngIf="!isNavigatingToReports"></i>
+            <span>{{ isNavigatingToReports ? 'Loading...' : 'View reports' }}</span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Right Side - Overview -->
+      <div class="overview-section">
+        <div class="overview-card">
+          <h2 class="overview-title">Overview</h2>
+          
+          <!-- Monthly Overview -->
+          <div class="monthly-overview">
+            <h3 class="section-title">Monthly Overview</h3>
+            <p class="month-info">{{ currentMonth }} - {{ daysIntoMonth }} days in</p>
+            
+            <div class="overview-stats" *ngIf="!isLoadingData">
+              <div class="stat-box">
+                <div class="stat-amount">{{ formattedMonthlySpending }}</div>
+                <div class="stat-label">spent</div>
+              </div>
+              
+              <div class="stat-box">
+                <div class="stat-amount">{{ formattedDailyAverage }}</div>
+                <div class="stat-label">daily average</div>
+              </div>
+              
+              <div class="stat-box">
+                <div class="stat-amount">{{ totalExpenses }}</div>
+                <div class="stat-label">expenses</div>
+              </div>
+            </div>
+            
+            <!-- Loading state for stats -->
+            <div class="overview-stats loading-stats" *ngIf="isLoadingData">
+              <div class="stat-box">
+                <div class="stat-amount">
+                  <div class="loading-spinner-small"></div>
+                </div>
+                <div class="stat-label">spent</div>
+              </div>
+              
+              <div class="stat-box">
+                <div class="stat-amount">
+                  <div class="loading-spinner-small"></div>
+                </div>
+                <div class="stat-label">daily average</div>
+              </div>
+              
+              <div class="stat-box">
+                <div class="stat-amount">
+                  <div class="loading-spinner-small"></div>
+                </div>
+                <div class="stat-label">expenses</div>
+              </div>
+            </div>
+            
+            <div class="progress-bar">
+              <div class="progress-fill" [style.width.%]="monthProgress"></div>
+            </div>
+            <p class="progress-text">{{ monthProgress }}% of month completed</p>
+          </div>
+          
+          <!-- Top Categories Chart -->
+          <div class="categories-section">
+            <h3 class="section-title">Top Categories</h3>
+            
+            <!-- Loading state -->
+            <div class="chart-loading" *ngIf="isLoadingData">
+              <div class="loading-spinner"></div>
+              <p>Loading categories...</p>
+            </div>
+            
+            <!-- No data state -->
+            <div class="no-data-message" *ngIf="!isLoadingData && categoryBreakdown.length === 0">
+              <p>No expenses this month</p>
+              <small>Start adding expenses to see your spending breakdown</small>
+            </div>
+            
+            <!-- Chart -->
+            <div class="chart-container" *ngIf="!isLoadingData && categoryBreakdown.length > 0">
+              <canvas #categoryChart></canvas>
+            </div>
+          </div>
+          
+          <!-- Top Expenses -->
+          <div class="top-expenses-section">
+            <h3 class="section-title">Top Expenses</h3>
+            
+            <!-- Loading state -->
+            <div class="expenses-loading" *ngIf="isLoadingData">
+              <div class="expense-skeleton" *ngFor="let item of [1,2,3]">
+                <div class="skeleton-line"></div>
+                <div class="skeleton-amount"></div>
+              </div>
+            </div>
+            
+            <!-- No data state -->
+            <div class="no-data-message" *ngIf="!isLoadingData && topExpenses.length === 0">
+              <p>No expenses this month</p>
+              <small>Your top expenses will appear here</small>
+            </div>
+            
+            <!-- Top expenses list -->
+            <div class="top-expenses-list" *ngIf="!isLoadingData && topExpenses.length > 0">
+              <div 
+                class="expense-item" 
+                *ngFor="let expense of topExpenses; let i = index; trackBy: trackByExpenseId"
+              >
+                <div class="expense-info">
+                  <div class="expense-rank">{{ i + 1 }}</div>
+                  <div class="expense-details">
+                    <div class="expense-title">{{ expense.title }}</div>
+                    <div class="expense-meta">
+                      <span 
+                        class="expense-category"
+                        [style.background-color]="getCategoryColor(i)"
+                      >
+                        {{ expense.category }}
+                      </span>
+                      <span class="expense-date">{{ formatDate(expense.createdAt) }}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="expense-amount">{{ formatCurrency(expense.amount) }}</div>
+              </div>
+            </div>
+            
+            <!-- View all expenses link -->
+            <div class="view-all-link" *ngIf="!isLoadingData && topExpenses.length > 0">
+              <a routerLink="/expenses" class="view-all-btn">
+                View all expenses →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </main>
+</div>

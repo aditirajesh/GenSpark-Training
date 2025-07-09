@@ -1,0 +1,104 @@
+<app-auth-layout 
+      heroTitle="Join OPTI" 
+      heroSubtitle="Start tracking your expenses and take control of your financial future.">
+      
+      <div class="signup-form">
+        <div class="form-header">
+          <h2>Create Account</h2>
+          <p>Fill in your details to get started</p>
+        </div>
+        
+        <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+          
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input 
+              type="email" 
+              id="email"
+              formControlName="email"
+              [class.error]="isFieldInvalid('email')"
+              placeholder="Enter your email"
+              autocomplete="email">
+            <div *ngIf="isFieldInvalid('email')" class="error-message">
+              Valid email is required
+            </div>
+          </div>
+          
+          <!-- Phone Number -->
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input 
+              type="tel" 
+              id="phone"
+              formControlName="phone"
+              [class.error]="isFieldInvalid('phone')"
+              placeholder="Enter your phone number"
+              autocomplete="tel">
+            <div *ngIf="isFieldInvalid('phone')" class="error-message">
+              Valid phone number is required
+            </div>
+          </div>
+          
+          <!-- Password -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+              type="password" 
+              id="password"
+              formControlName="password"
+              [class.error]="isFieldInvalid('password')"
+              placeholder="Create a strong password"
+              autocomplete="new-password">
+            <div *ngIf="isFieldInvalid('password')" class="error-message">
+              Password must be at least 8 characters
+            </div>
+          </div>
+          
+          <!-- Confirm Password -->
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input 
+              type="password" 
+              id="confirmPassword"
+              formControlName="confirmPassword"
+              [class.error]="isFieldInvalid('confirmPassword')"
+              placeholder="Confirm your password"
+              autocomplete="new-password">
+            <div *ngIf="isFieldInvalid('confirmPassword')" class="error-message">
+              <span *ngIf="signupForm.get('confirmPassword')?.hasError('required')">Please confirm your password</span>
+              <span *ngIf="signupForm.get('confirmPassword')?.hasError('passwordMismatch')">Passwords must match</span>
+            </div>
+          </div>
+          
+          
+          <!-- Submit Button -->
+          <button 
+            type="submit" 
+            [disabled]="signupForm.invalid || loading"
+            class="submit-btn">
+            <span *ngIf="loading" class="loading-spinner"></span>
+            {{loading ? 'Creating Account...' : 'Create Account'}}
+          </button>
+          
+        </form>
+        
+        <!-- Login Link -->
+        <div class="auth-switch">
+          <p>Already have an account? 
+            <button (click)="navigateToLogin()" class="link-btn">Sign in here</button>
+          </p>
+        </div>
+        
+        <!-- Messages -->
+        <div *ngIf="errorMessage" class="error-alert" role="alert">
+          {{errorMessage}}
+        </div>
+        
+        <div *ngIf="successMessage" class="success-alert" role="alert">
+          {{successMessage}}
+        </div>
+        
+      </div>
+      
+    </app-auth-layout>

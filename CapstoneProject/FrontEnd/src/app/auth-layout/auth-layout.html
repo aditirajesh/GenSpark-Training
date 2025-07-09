@@ -1,0 +1,30 @@
+<div class="auth-layout">
+      
+      <!-- Left Side - Hero -->
+      <div class="hero-side">
+        <div class="hero-content">
+          <h2>{{heroTitle}}</h2>
+          <p>{{heroSubtitle}}</p>
+        </div>
+      </div>
+      
+      <!-- Right Side - Form Content -->
+      <div class="form-side">
+        <div class="form-container">
+          
+          <!-- Brand Header -->
+          <div class="brand-header">
+            <button (click)="navigateToLanding()" class="brand-btn" aria-label="Go back to home">
+              <h1 class="brand-text">OPTI</h1>
+            </button>
+          </div>
+          
+          <!-- Dynamic Content -->
+          <div class="form-content">
+            <ng-content></ng-content>
+          </div>
+          
+        </div>
+      </div>
+      
+</div>
