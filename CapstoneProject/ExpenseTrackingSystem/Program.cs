@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.RateLimiting;
 using Serilog;
 using Serilog.Events;
+using Serilog.Sinks.AzureBlobStorage; // 🆕 ADD: For Azure Blob Storage logging
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -56,14 +57,18 @@ builder.Services.AddSwaggerGen(opt =>
     });
 });
 
+// 🆕 ENHANCED: Serilog configuration with Azure Blob Storage support
 builder.Host.UseSerilog((context, configuration) =>
 {
     var isDevelopment = context.HostingEnvironment.IsDevelopment();
+    var azureStorageConnectionString = context.Configuration.GetConnectionString("AzureStorage");
 
     configuration
         .ReadFrom.Configuration(context.Configuration)
         .Enrich.FromLogContext()
-        .Enrich.WithProperty("Application", "ExpenseTrackingSystem");
+        .Enrich.WithProperty("Application", "ExpenseTrackingSystem")
+        .Enrich.WithProperty("Environment", context.HostingEnvironment.EnvironmentName)
+        .Enrich.WithProperty("MachineName", Environment.MachineName);
 
     if (isDevelopment)
     {
@@ -79,12 +84,44 @@ builder.Host.UseSerilog((context, configuration) =>
         configuration.WriteTo.Console();
     }
 
-    // Always write to file (single line for parsing)
+    // Keep your existing local file logging
     configuration.WriteTo.File(
         path: "Logs/expense-tracking-.log",
         rollingInterval: RollingInterval.Day,
         retainedFileCountLimit: 30,
         outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} {Level:u3}] {SourceContext}: {Message:lj} {Properties:j}{NewLine}");
+
+    // 🆕 ADD: Azure Blob Storage logging for real-time cloud storage
+    if (!string.IsNullOrEmpty(azureStorageConnectionString))
+    {
+        try
+        {
+            configuration.WriteTo.AzureBlobStorage(
+                connectionString: azureStorageConnectionString,
+                storageContainerName: "log-files",
+                storageFileName: "application/{yyyy}/{MM}/{dd}/expense-tracking-{HH}.log",
+                restrictedToMinimumLevel: LogEventLevel.Information,
+                outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} {Level:u3}] {SourceContext}: {Message:lj} {Properties:j}{NewLine}");
+
+            // 🆕 ADD: Separate sink for errors/warnings
+            configuration.WriteTo.AzureBlobStorage(
+                connectionString: azureStorageConnectionString,
+                storageContainerName: "log-files",
+                storageFileName: "errors/{yyyy}/{MM}/{dd}/errors-{HH}.log",
+                restrictedToMinimumLevel: LogEventLevel.Warning,
+                outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} {Level:u3}] {SourceContext}: {Message:lj} {Properties:j}{NewLine}{Exception}");
+
+            Log.Information("Azure Blob Storage logging configured successfully");
+        }
+        catch (Exception ex)
+        {
+            Log.Warning(ex, "Failed to configure Azure Blob Storage logging, continuing with local logging only");
+        }
+    }
+    else
+    {
+        Log.Warning("Azure Storage connection string not found, using local logging only");
+    }
 });
 
 builder.Services.AddCors(options =>
@@ -182,6 +219,7 @@ builder.Services.AddRateLimiter(options =>
 
 var app = builder.Build();
 
+// 🆕 ENHANCED: More detailed request logging with user context
 app.UseSerilogRequestLogging(options =>
 {
     options.MessageTemplate = "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms";
@@ -196,10 +234,18 @@ app.UseSerilogRequestLogging(options =>
         diagnosticContext.Set("RequestHost", httpContext.Request.Host.Value);
         diagnosticContext.Set("RequestScheme", httpContext.Request.Scheme);
         diagnosticContext.Set("UserAgent", httpContext.Request.Headers["User-Agent"].FirstOrDefault());
+        diagnosticContext.Set("RemoteIpAddress", httpContext.Connection.RemoteIpAddress?.ToString());
+        diagnosticContext.Set("RequestSize", httpContext.Request.ContentLength ?? 0);
+        diagnosticContext.Set("ResponseSize", httpContext.Response.ContentLength ?? 0);
         
         if (httpContext.User.Identity?.IsAuthenticated == true)
         {
             diagnosticContext.Set("UserName", httpContext.User.Identity.Name);
+            diagnosticContext.Set("IsAuthenticated", true);
+        }
+        else
+        {
+            diagnosticContext.Set("IsAuthenticated", false);
         }
     };
 });
@@ -228,7 +274,7 @@ app.MapControllers();
 
 try
 {
-    Log.Information("Starting ExpenseTrackingSystem web host");
+    Log.Information("Starting ExpenseTrackingSystem web host with Azure Blob Storage logging enabled");
     app.Run();
 }
 catch (Exception ex)
