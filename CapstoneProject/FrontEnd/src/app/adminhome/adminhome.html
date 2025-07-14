@@ -1,0 +1,494 @@
+<!-- admin-home.component.html -->
+<div class="admin-home-container">
+  <!-- Create User Modal -->
+  <div class="modal-overlay" *ngIf="showCreateUserModal" (click)="closeCreateUserModal()">
+    <div class="modal-container" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3 class="modal-title">Create New User</h3>
+        <button class="modal-close-btn" (click)="closeCreateUserModal()">
+          <i class="icon-close"></i>
+        </button>
+      </div>
+      
+      <form class="modal-form" (ngSubmit)="submitCreateUser()" #createUserForm="ngForm">
+        <div class="form-group">
+          <label for="newUsername" class="form-label">Username *</label>
+          <input 
+            type="text" 
+            id="newUsername"
+            name="newUsername"
+            class="form-input"
+            [(ngModel)]="newUser.username"
+            #usernameInput="ngModel"
+            required
+            minlength="3"
+            placeholder="Enter username"
+          >
+          <div class="form-error" *ngIf="usernameInput.invalid && usernameInput.touched">
+            <span *ngIf="usernameInput.errors?.['required']">Username is required</span>
+            <span *ngIf="usernameInput.errors?.['minlength']">Username must be at least 3 characters</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="newPhone" class="form-label">Phone Number *</label>
+          <input 
+            type="tel" 
+            id="newPhone"
+            name="newPhone"
+            class="form-input"
+            [(ngModel)]="newUser.phone"
+            #phoneInput="ngModel"
+            required
+            pattern="[0-9]{10}"
+            placeholder="Enter 10-digit phone number"
+          >
+          <div class="form-error" *ngIf="phoneInput.invalid && phoneInput.touched">
+            <span *ngIf="phoneInput.errors?.['required']">Phone number is required</span>
+            <span *ngIf="phoneInput.errors?.['pattern']">Phone number must be 10 digits</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="newPassword" class="form-label">Password *</label>
+          <input 
+            type="password" 
+            id="newPassword"
+            name="newPassword"
+            class="form-input"
+            [(ngModel)]="newUser.password"
+            #passwordInput="ngModel"
+            required
+            minlength="6"
+            placeholder="Enter password"
+          >
+          <div class="form-error" *ngIf="passwordInput.invalid && passwordInput.touched">
+            <span *ngIf="passwordInput.errors?.['required']">Password is required</span>
+            <span *ngIf="passwordInput.errors?.['minlength']">Password must be at least 6 characters</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="newRole" class="form-label">Role *</label>
+          <select 
+            id="newRole"
+            name="newRole"
+            class="form-select"
+            [(ngModel)]="newUser.role"
+            #roleInput="ngModel"
+            required
+          >
+            <option value="">Select role</option>
+            <option value="User">User</option>
+            <option value="Admin">Admin</option>
+          </select>
+          <div class="form-error" *ngIf="roleInput.invalid && roleInput.touched">
+            <span *ngIf="roleInput.errors?.['required']">Role is required</span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button 
+            type="button" 
+            class="modal-btn modal-cancel-btn" 
+            (click)="closeCreateUserModal()"
+            [disabled]="isCreatingUser"
+          >
+            Cancel
+          </button>
+          <button 
+            type="submit" 
+            class="modal-btn modal-submit-btn"
+            [disabled]="createUserForm.invalid || isCreatingUser"
+          >
+            <div class="btn-spinner-small" *ngIf="isCreatingUser"></div>
+            <span *ngIf="!isCreatingUser">Create User</span>
+            <span *ngIf="isCreatingUser">Creating...</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="header">
+    <nav class="nav-container">
+      <div class="nav-left">
+        <a routerLink="/admin-home" class="nav-item active">
+          <i class="icon-users"></i>
+          <span>Users</span>
+        </a>
+        <a routerLink="/profile" class="nav-item">
+          <i class="icon-profile"></i>
+          <span>Profile</span>
+        </a>
+      </div>
+      
+      <div class="nav-right">
+        <button class="create-user-btn" (click)="createUser()">
+          <i class="icon-plus"></i>
+          Create User
+        </button>
+        <button class="notification-btn">
+          <i class="icon-bell"></i>
+        </button>
+        <button class="logout-btn" (click)="logout()">
+          Logout
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Create User Modal -->
+  <div class="modal-overlay" *ngIf="showCreateUserModal" (click)="closeCreateUserModal()">
+    <div class="modal-container" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3 class="modal-title">Create New User</h3>
+        <button class="modal-close-btn" (click)="closeCreateUserModal()">
+          <i class="icon-close"></i>
+        </button>
+      </div>
+      
+      <form class="modal-form" (ngSubmit)="submitCreateUser()" #createUserForm="ngForm">
+        <div class="form-group">
+          <label for="newUsername" class="form-label">Username *</label>
+          <input 
+            type="text" 
+            id="newUsername"
+            name="newUsername"
+            class="form-input"
+            [(ngModel)]="newUser.username"
+            #usernameInput="ngModel"
+            required
+            minlength="3"
+            placeholder="Enter username"
+          >
+          <div class="form-error" *ngIf="usernameInput.invalid && usernameInput.touched">
+            <span *ngIf="usernameInput.errors?.['required']">Username is required</span>
+            <span *ngIf="usernameInput.errors?.['minlength']">Username must be at least 3 characters</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="newPhone" class="form-label">Phone Number *</label>
+          <input 
+            type="tel" 
+            id="newPhone"
+            name="newPhone"
+            class="form-input"
+            [(ngModel)]="newUser.phone"
+            #phoneInput="ngModel"
+            required
+            pattern="[0-9]{10}"
+            placeholder="Enter 10-digit phone number"
+          >
+          <div class="form-error" *ngIf="phoneInput.invalid && phoneInput.touched">
+            <span *ngIf="phoneInput.errors?.['required']">Phone number is required</span>
+            <span *ngIf="phoneInput.errors?.['pattern']">Phone number must be 10 digits</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="newPassword" class="form-label">Password *</label>
+          <input 
+            type="password" 
+            id="newPassword"
+            name="newPassword"
+            class="form-input"
+            [(ngModel)]="newUser.password"
+            #passwordInput="ngModel"
+            required
+            minlength="6"
+            placeholder="Enter password"
+          >
+          <div class="form-error" *ngIf="passwordInput.invalid && passwordInput.touched">
+            <span *ngIf="passwordInput.errors?.['required']">Password is required</span>
+            <span *ngIf="passwordInput.errors?.['minlength']">Password must be at least 6 characters</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="newRole" class="form-label">Role *</label>
+          <select 
+            id="newRole"
+            name="newRole"
+            class="form-select"
+            [(ngModel)]="newUser.role"
+            #roleInput="ngModel"
+            required
+          >
+            <option value="">Select role</option>
+            <option value="User">User</option>
+            <option value="Admin">Admin</option>
+          </select>
+          <div class="form-error" *ngIf="roleInput.invalid && roleInput.touched">
+            <span *ngIf="roleInput.errors?.['required']">Role is required</span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button 
+            type="button" 
+            class="modal-btn modal-cancel-btn" 
+            (click)="closeCreateUserModal()"
+            [disabled]="isCreatingUser"
+          >
+            Cancel
+          </button>
+          <button 
+            type="submit" 
+            class="modal-btn modal-submit-btn"
+            [disabled]="createUserForm.invalid || isCreatingUser"
+          >
+            <div class="btn-spinner-small" *ngIf="isCreatingUser"></div>
+            <span *ngIf="!isCreatingUser">Create User</span>
+            <span *ngIf="isCreatingUser">Creating...</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    
+    <!-- Header Section -->
+    <div class="page-header">
+      <div class="header-content">
+        <h1 class="page-title">
+          Welcome back, <span class="admin-name">{{ displayUsername }}</span>
+        </h1>
+        <p class="page-subtitle">Manage users and monitor application activity</p>
+      </div>
+      
+      <div class="header-actions">
+        <button class="refresh-btn" (click)="refreshUsers()" [disabled]="isLoadingUsers">
+          <i class="icon-refresh" [class.spinning]="isLoadingUsers"></i>
+          <span>Refresh</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon users-icon">
+          <i class="icon-users"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-number">{{ totalActiveUsers }}</div>
+          <div class="stat-label">Active Users</div>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon admins-icon">
+          <i class="icon-shield"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-number">{{ totalAdmins }}</div>
+          <div class="stat-label">Administrators</div>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon regular-users-icon">
+          <i class="icon-user"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-number">{{ totalRegularUsers }}</div>
+          <div class="stat-label">Regular Users</div>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon recent-icon">
+          <i class="icon-clock"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-number">{{ recentlyJoinedUsers }}</div>
+          <div class="stat-label">Recent (7 days)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Management Section -->
+    <div class="users-section">
+      <div class="section-header">
+        <h2 class="section-title">User Management</h2>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <i class="icon-search search-icon"></i>
+            <input 
+              type="text" 
+              class="search-input"
+              placeholder="Search by username..."
+              [(ngModel)]="searchQuery"
+              (input)="onSearchInputChange($event)"
+            >
+            <button 
+              class="clear-search-btn" 
+              *ngIf="searchQuery" 
+              (click)="clearSearch()"
+            >
+              <i class="icon-close"></i>
+            </button>
+          </div>
+          
+          <div class="search-status" *ngIf="isSearching">
+            <div class="loading-spinner-small"></div>
+            <span>Searching...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Users Table -->
+      <div class="users-table-container">
+        
+        <!-- Loading State -->
+        <div class="loading-container" *ngIf="isLoadingUsers">
+          <div class="loading-spinner"></div>
+          <p>Loading users...</p>
+        </div>
+
+        <!-- No Users State -->
+        <div class="no-data-container" *ngIf="showNoUsers">
+          <div class="no-data-icon">
+            <i class="icon-users"></i>
+          </div>
+          <h3>No users found</h3>
+          <p>There are no users in the system yet.</p>
+        </div>
+
+        <!-- No Search Results State -->
+        <div class="no-data-container" *ngIf="showNoResults">
+          <div class="no-data-icon">
+            <i class="icon-search"></i>
+          </div>
+          <h3>No results found</h3>
+          <p>No users match your search criteria for "{{ searchQuery }}"</p>
+          <button class="clear-search-btn-alt" (click)="clearSearch()">
+            Clear search
+          </button>
+        </div>
+
+        <!-- Users Table -->
+        <div class="table-wrapper" *ngIf="hasUsers && !isLoadingUsers">
+          <table class="users-table">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Role</th>
+                <th>Phone</th>
+                <th>Last Active</th>
+                <th>Joined</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr 
+                *ngFor="let user of filteredUsers; trackBy: trackByUsername" 
+                class="user-row"
+              >
+                <td class="user-info-cell">
+                  <div class="user-info">
+                    <div class="user-avatar">
+                      {{ user.username.charAt(0).toUpperCase() }}
+                    </div>
+                    <div class="user-details">
+                      <div class="username">{{ user.username }}</div>
+                      <div class="user-status" [class.online]="isUserOnline(user.updatedAt)">
+                        {{ isUserOnline(user.updatedAt) ? 'Online' : 'Offline' }}
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                
+                <td>
+                  <span [class]="getUserRoleBadgeClass(user.role)">
+                    {{ user.role }}
+                  </span>
+                </td>
+                
+                <td class="phone-cell">
+                  {{ formatPhone(user.phone) }}
+                </td>
+                
+                <td class="last-seen-cell">
+                  {{ formatLastSeen(user.updatedAt.toString()) }}
+                </td>
+                
+                <td class="joined-cell">
+                  {{ formatJoinDate(user.createdAt) }}
+                </td>
+                
+                <td class="actions-cell">
+                  <div class="action-buttons">
+                    <button 
+                      class="action-btn view-btn"
+                      (click)="navigateToUserExpenses(user.username)"
+                      title="View user expenses"
+                    >
+                      <i class="icon-view"></i>
+                    </button>
+                    
+                    <button 
+                      class="action-btn reports-btn"
+                      (click)="navigateToUserReports(user.username)"
+                      title="View user reports"
+                    >
+                      <i class="icon-reports"></i>
+                    </button>
+                    
+                    <button 
+                      class="action-btn delete-btn"
+                      (click)="deleteUser(user.username)"
+                      [disabled]="isDeletingUser === user.username || currentUser?.username === user.username"
+                      [title]="currentUser?.username === user.username ? 'Cannot delete your own account' : 'Delete user'"
+                    >
+                      <div class="btn-spinner-small" *ngIf="isDeletingUser === user.username"></div>
+                      <i class="icon-delete" *ngIf="isDeletingUser !== user.username"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container" *ngIf="hasUsers && !isLoadingUsers && !searchQuery">
+          <div class="pagination-info">
+            {{ paginationInfo }}
+          </div>
+          
+          <div class="pagination-controls">
+            <button 
+              class="pagination-btn"
+              (click)="changePage(currentPage - 1)"
+              [disabled]="currentPage <= 1"
+            >
+              <i class="icon-chevron-left"></i>
+              Previous
+            </button>
+            
+            <div class="page-numbers">
+              <span class="current-page">{{ currentPage }}</span>
+            </div>
+            
+            <button 
+              class="pagination-btn"
+              (click)="changePage(currentPage + 1)"
+              [disabled]="filteredUsers.length < pageSize"
+            >
+              Next
+              <i class="icon-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

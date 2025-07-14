@@ -1,0 +1,67 @@
+<div class="landing-container">
+      
+      <!-- Left Side - Hero Section -->
+      <div class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Track.<br>
+            Analyze.<br>
+            Optimize.<br>
+            Repeat.
+          </h1>
+          <p class="hero-subtitle">
+            Take control of your expenses with our powerful tracking and analytics platform.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Right Side - Action Section -->
+      <div class="action-section">
+        <div class="action-container">
+          
+          <!-- Brand -->
+          <div class="brand">
+            <h2 class="brand-text">OPTI</h2>
+          </div>
+          
+          <!-- Action Card -->
+          <div class="action-card">
+            <div class="welcome-content">
+              <h3>Welcome</h3>
+              <p>Choose an option to get started with your expense tracking journey</p>
+            </div>
+            
+            <div class="button-group">
+              <button 
+                (click)="navigateToSignup()" 
+                class="primary-btn"
+                [attr.aria-label]="'Navigate to signup page'">
+                <span class="btn-icon">👤</span>
+                Sign Up
+              </button>
+              
+              <button 
+                (click)="navigateToLogin()" 
+                class="secondary-btn"
+                [attr.aria-label]="'Navigate to login page'">
+                <span class="btn-icon">🔑</span>
+                Already a user? Login
+              </button>
+            </div>
+            
+            <div class="features-preview">
+              <div class="feature-item">
+                <span class="feature-icon">📊</span>
+                <span>Analytics Dashboard</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">💰</span>
+                <span>Expense Tracking</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+</div>

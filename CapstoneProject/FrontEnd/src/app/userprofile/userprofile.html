@@ -1,0 +1,355 @@
+<div class="home-container">
+  <!-- Header Navigation -->
+  <header class="header">
+    <nav class="nav-container">
+      <!-- Admin Navigation -->
+      <div class="nav-left" *ngIf="isAdmin">
+        <a routerLink="/admin-home" class="nav-item" (click)="navigateToAdminHome()">
+          <i class="icon-users"></i>
+          <span>Users</span>
+        </a>
+        <a routerLink="/profile" class="nav-item active">
+          <i class="icon-profile"></i>
+          <span>Profile</span>
+        </a>
+      </div>
+
+      <!-- Regular User Navigation -->
+      <div class="nav-left" *ngIf="!isAdmin">
+        <a routerLink="/home" class="nav-item" (click)="navigateToHome()">
+          <i class="icon-home"></i>
+          <span>Home</span>
+        </a>
+        <a routerLink="/expenses" class="nav-item" (click)="navigateToExpenses()">
+          <i class="icon-expenses"></i>
+          <span>Expenses</span>
+        </a>
+        <a routerLink="/reports" class="nav-item" (click)="navigateToReports()">
+          <i class="icon-reports"></i>
+          <span>Reports</span>
+        </a>
+        <a routerLink="/profile" class="nav-item active">
+          <i class="icon-profile"></i>
+          <span>Profile</span>
+        </a>
+      </div>
+      
+      <div class="nav-right">
+        <button class="notification-btn">
+          <i class="icon-bell"></i>
+        </button>
+        <button class="logout-btn" (click)="logout()">
+          Logout
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Success/Error Messages (Only for main page errors) -->
+    <div class="messages-container" *ngIf="successMessage || error">
+      <div class="alert-success" *ngIf="successMessage">
+        <i class="icon-check"></i>
+        {{ successMessage }}
+        <button type="button" class="close-btn" (click)="clearAllMessages()">
+          <i class="icon-close"></i>
+        </button>
+      </div>
+      <div class="alert-error" *ngIf="error">
+        <i class="icon-warning"></i>
+        {{ error }}
+        <button type="button" class="close-btn" (click)="clearAllMessages()">
+          <i class="icon-close"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Profile Information Card -->
+    <div class="profile-container" *ngIf="currentUser">
+      <div class="profile-card">
+        <div class="profile-header">
+          <h2 class="profile-card-title">
+            <i class="icon-profile"></i>
+            Profile Information
+          </h2>
+        </div>
+        <div class="profile-content">
+          <!-- Profile Icon and Basic Info -->
+          <div class="profile-avatar-section">
+            <div class="profile-avatar">
+              <i class="icon-profile"></i>
+            </div>
+            <h3 class="profile-username">{{ getUserDisplayName() }}</h3>
+            <span class="profile-role-badge">{{ currentUser.role || 'Unknown Role' }}</span>
+          </div>
+
+          <!-- User Details -->
+          <div class="profile-details" *ngIf="isUserDataComplete()">
+            <div class="detail-row">
+              <div class="detail-item">
+                <label class="detail-label">Email:</label>
+                <p class="detail-value">{{ userDetails?.username || 'Not available' }}</p>
+              </div>
+              <div class="detail-item">
+                <label class="detail-label">Phone:</label>
+                <p class="detail-value">{{ userDetails?.phone || 'Not provided' }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Loading State for User Details -->
+          <div class="profile-details" *ngIf="!isUserDataComplete() && !error">
+            <div class="loading-details">
+              <div class="spinner"></div>
+              <p class="loading-text">Loading user details...</p>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="profile-actions" *ngIf="currentUser.username">
+            <h4 class="actions-title">Account Actions</h4>
+            <div class="action-buttons">
+              <button 
+                class="action-btn password-btn"
+                (click)="openPasswordModal()"
+                [disabled]="isLoading">
+                <i class="icon-lock"></i>
+                <span>Update Password</span>
+              </button>
+              
+              <button 
+                class="action-btn phone-btn"
+                (click)="openPhoneModal()"
+                [disabled]="isLoading">
+                <i class="icon-phone"></i>
+                <span>Edit Phone</span>
+              </button>
+              
+              <button 
+                class="action-btn danger-btn"
+                (click)="openDeleteConfirmation()"
+                [disabled]="isLoading">
+                <i class="icon-trash"></i>
+                <span>Delete Account</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading-container" *ngIf="!currentUser">
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p class="loading-text">Loading profile...</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Verify Current Password Modal (Step 1) -->
+<div class="modal-overlay" *ngIf="showCurrentPasswordModal" (click)="closeCurrentPasswordModal()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3 class="modal-title">
+        <i class="icon-lock"></i>
+        Verify Current Password
+      </h3>
+      <button type="button" class="modal-close-btn" (click)="closeCurrentPasswordModal()">
+        <i class="icon-close"></i>
+      </button>
+    </div>
+    <form [formGroup]="currentPasswordForm" (ngSubmit)="verifyCurrentPassword()">
+      <div class="modal-body">
+        <!-- Modal Error Message -->
+        <div class="modal-error" *ngIf="currentPasswordError">
+          <i class="icon-warning"></i>
+          {{ currentPasswordError }}
+        </div>
+
+        <div class="form-group">
+          <label for="currentPassword" class="form-label">Current Password</label>
+          <input 
+            type="password" 
+            class="form-input"
+            [class.error]="isFieldInvalid(currentPasswordForm, 'currentPassword')"
+            id="currentPassword"
+            formControlName="currentPassword"
+            placeholder="Enter your current password">
+          <div class="error-message" *ngIf="isFieldInvalid(currentPasswordForm, 'currentPassword')">
+            {{ getFieldError(currentPasswordForm, 'currentPassword') }}
+          </div>
+          <div class="form-help">
+            Please enter your current password to proceed with the password update.
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" (click)="closeCurrentPasswordModal()" [disabled]="isLoading">
+          Cancel
+        </button>
+        <button type="submit" class="btn-primary" [disabled]="currentPasswordForm.invalid || isLoading">
+          <span class="btn-spinner" *ngIf="isLoading"></span>
+          <i class="icon-check" *ngIf="!isLoading"></i>
+          Verify Password
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Update Password Modal (Step 2) -->
+<div class="modal-overlay" *ngIf="showNewPasswordModal" (click)="closeNewPasswordModal()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3 class="modal-title">
+        <i class="icon-lock"></i>
+        Set New Password
+      </h3>
+      <button type="button" class="modal-close-btn" (click)="closeNewPasswordModal()">
+        <i class="icon-close"></i>
+      </button>
+    </div>
+    <form [formGroup]="newPasswordForm" (ngSubmit)="updatePassword()">
+      <div class="modal-body">
+        <!-- Modal Error Message -->
+        <div class="modal-error" *ngIf="newPasswordError">
+          <i class="icon-warning"></i>
+          {{ newPasswordError }}
+        </div>
+
+        <!-- New Password -->
+        <div class="form-group">
+          <label for="newPassword" class="form-label">New Password</label>
+          <input 
+            type="password" 
+            class="form-input"
+            [class.error]="isFieldInvalid(newPasswordForm, 'newPassword')"
+            id="newPassword"
+            formControlName="newPassword"
+            placeholder="Enter new password">
+          <div class="error-message" *ngIf="isFieldInvalid(newPasswordForm, 'newPassword')">
+            {{ getFieldError(newPasswordForm, 'newPassword') }}
+          </div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label for="confirmPassword" class="form-label">Confirm New Password</label>
+          <input 
+            type="password" 
+            class="form-input"
+            [class.error]="isFieldInvalid(newPasswordForm, 'confirmPassword')"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            placeholder="Confirm new password">
+          <div class="error-message" *ngIf="isFieldInvalid(newPasswordForm, 'confirmPassword')">
+            {{ getFieldError(newPasswordForm, 'confirmPassword') }}
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" (click)="closeNewPasswordModal()" [disabled]="isLoading">
+          Cancel
+        </button>
+        <button type="submit" class="btn-primary" [disabled]="newPasswordForm.invalid || isLoading">
+          <span class="btn-spinner" *ngIf="isLoading"></span>
+          <i class="icon-save" *ngIf="!isLoading"></i>
+          Update Password
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Update Phone Modal -->
+<div class="modal-overlay" *ngIf="showPhoneModal" (click)="closePhoneModal()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3 class="modal-title">
+        <i class="icon-phone"></i>
+        Edit Phone Number
+      </h3>
+      <button type="button" class="modal-close-btn" (click)="closePhoneModal()">
+        <i class="icon-close"></i>
+      </button>
+    </div>
+    <form [formGroup]="phoneForm" (ngSubmit)="updatePhone()">
+      <div class="modal-body">
+        <!-- Modal Error Message -->
+        <div class="modal-error" *ngIf="phoneError">
+          <i class="icon-warning"></i>
+          {{ phoneError }}
+        </div>
+
+        <div class="form-group">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input 
+            type="tel" 
+            class="form-input"
+            [class.error]="isFieldInvalid(phoneForm, 'phone')"
+            id="phone"
+            formControlName="phone"
+            placeholder="Enter phone number">
+          <div class="error-message" *ngIf="isFieldInvalid(phoneForm, 'phone')">
+            {{ getFieldError(phoneForm, 'phone') }}
+          </div>
+          <div class="form-help">
+            Please enter a valid phone number with country code (e.g., +1234567890)
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" (click)="closePhoneModal()" [disabled]="isLoading">
+          Cancel
+        </button>
+        <button type="submit" class="btn-primary" [disabled]="phoneForm.invalid || isLoading">
+          <span class="btn-spinner" *ngIf="isLoading"></span>
+          <i class="icon-save" *ngIf="!isLoading"></i>
+          Update Phone
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Delete Account Confirmation Modal -->
+<div class="modal-overlay" *ngIf="showDeleteConfirmation" (click)="closeDeleteConfirmation()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-header danger">
+      <h3 class="modal-title">
+        <i class="icon-warning"></i>
+        Delete Account
+      </h3>
+      <button type="button" class="modal-close-btn" (click)="closeDeleteConfirmation()">
+        <i class="icon-close"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="warning-content">
+        <div class="warning-icon">
+          <i class="icon-warning"></i>
+        </div>
+        <h4>Are you sure you want to delete your account?</h4>
+        <p class="warning-text">
+          This action cannot be undone. All your data will be permanently removed from our servers.
+        </p>
+        <div class="alert-warning">
+          <strong>Warning:</strong> You will be immediately logged out and redirected to the main page.
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn-secondary" (click)="closeDeleteConfirmation()" [disabled]="isLoading">
+        Cancel
+      </button>
+      <button type="button" class="btn-danger" (click)="deleteAccount()" [disabled]="isLoading">
+        <span class="btn-spinner" *ngIf="isLoading"></span>
+        <i class="icon-trash" *ngIf="!isLoading"></i>
+        Delete My Account
+      </button>
+    </div>
+  </div>
+</div>
