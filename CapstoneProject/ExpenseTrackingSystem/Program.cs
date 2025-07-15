@@ -13,16 +13,17 @@ using System.Text;
 using System.Threading.RateLimiting;
 using Serilog;
 using Serilog.Events;
-using Serilog.Sinks.AzureBlobStorage; // 🆕 ADD: For Azure Blob Storage logging
+using Serilog.Sinks.AzureBlobStorage; 
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ FIXED: Single, consistent JSON configuration
 builder.Services.ConfigureHttpJsonOptions(options =>
 {
-    options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; // ✅ Handle circular refs properly
+    options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; 
     options.SerializerOptions.WriteIndented = true;
     options.SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
     options.SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
@@ -57,11 +58,9 @@ builder.Services.AddSwaggerGen(opt =>
     });
 });
 
-// 🆕 ENHANCED: Serilog configuration with Azure Blob Storage support
 builder.Host.UseSerilog((context, configuration) =>
 {
     var isDevelopment = context.HostingEnvironment.IsDevelopment();
-    var azureStorageConnectionString = context.Configuration.GetConnectionString("AzureStorage");
 
     configuration
         .ReadFrom.Configuration(context.Configuration)
@@ -72,7 +71,6 @@ builder.Host.UseSerilog((context, configuration) =>
 
     if (isDevelopment)
     {
-        // Pretty console for development
         configuration.WriteTo.Console(outputTemplate:
             "[{Timestamp:HH:mm:ss} {Level:u3}] {SourceContext}{NewLine}" +
             "    💬 {Message:lj}{NewLine}" +
@@ -80,48 +78,15 @@ builder.Host.UseSerilog((context, configuration) =>
     }
     else
     {
-        // Structured for production
         configuration.WriteTo.Console();
     }
 
-    // Keep your existing local file logging
     configuration.WriteTo.File(
         path: "Logs/expense-tracking-.log",
         rollingInterval: RollingInterval.Day,
         retainedFileCountLimit: 30,
         outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} {Level:u3}] {SourceContext}: {Message:lj} {Properties:j}{NewLine}");
 
-    // 🆕 ADD: Azure Blob Storage logging for real-time cloud storage
-    if (!string.IsNullOrEmpty(azureStorageConnectionString))
-    {
-        try
-        {
-            configuration.WriteTo.AzureBlobStorage(
-                connectionString: azureStorageConnectionString,
-                storageContainerName: "log-files",
-                storageFileName: "application/{yyyy}/{MM}/{dd}/expense-tracking-{HH}.log",
-                restrictedToMinimumLevel: LogEventLevel.Information,
-                outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} {Level:u3}] {SourceContext}: {Message:lj} {Properties:j}{NewLine}");
-
-            // 🆕 ADD: Separate sink for errors/warnings
-            configuration.WriteTo.AzureBlobStorage(
-                connectionString: azureStorageConnectionString,
-                storageContainerName: "log-files",
-                storageFileName: "errors/{yyyy}/{MM}/{dd}/errors-{HH}.log",
-                restrictedToMinimumLevel: LogEventLevel.Warning,
-                outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} {Level:u3}] {SourceContext}: {Message:lj} {Properties:j}{NewLine}{Exception}");
-
-            Log.Information("Azure Blob Storage logging configured successfully");
-        }
-        catch (Exception ex)
-        {
-            Log.Warning(ex, "Failed to configure Azure Blob Storage logging, continuing with local logging only");
-        }
-    }
-    else
-    {
-        Log.Warning("Azure Storage connection string not found, using local logging only");
-    }
 });
 
 builder.Services.AddCors(options =>
@@ -129,14 +94,13 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngularApp", policy =>
     {
         policy
-            .WithOrigins("http://localhost:4200", "https://localhost:4200") // Angular dev server
+            .WithOrigins("http://localhost:4200", "https://localhost:4200") 
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials()
             .SetPreflightMaxAge(TimeSpan.FromMinutes(10));
     });
 
-    // More permissive policy for development
     options.AddPolicy("DevelopmentCors", policy =>
     {
         policy
@@ -146,20 +110,21 @@ builder.Services.AddCors(options =>
     });
 });
 
-// ✅ FIXED: Consistent JSON configuration for controllers
 builder.Services.AddControllers()
                 .AddJsonOptions(opts =>
                 {
-                    opts.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; // ✅ Same as above
+                    opts.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; 
                     opts.JsonSerializerOptions.WriteIndented = true;
                     opts.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
                     opts.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
                 });
 
+
 builder.Services.AddDbContext<ExpenseContext>(opts =>
 {
     opts.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
 
 #region  Repositories
 builder.Services.AddTransient<IRepository<Guid, AuditLog>, AuditRepository>();
@@ -219,7 +184,6 @@ builder.Services.AddRateLimiter(options =>
 
 var app = builder.Build();
 
-// 🆕 ENHANCED: More detailed request logging with user context
 app.UseSerilogRequestLogging(options =>
 {
     options.MessageTemplate = "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms";
@@ -260,11 +224,11 @@ app.UseHttpsRedirection();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseCors("DevelopmentCors"); // More permissive for development
+    app.UseCors("DevelopmentCors"); 
 }
 else
 {
-    app.UseCors("AllowAngularApp"); // Specific origins for production
+    app.UseCors("AllowAngularApp"); 
 }
 app.UseRateLimiter();
 app.UseAuthentication();

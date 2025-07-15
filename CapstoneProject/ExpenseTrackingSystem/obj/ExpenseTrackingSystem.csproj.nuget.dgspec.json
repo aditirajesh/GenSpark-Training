@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/aditirajesh/Desktop/GenSpark-Training/CapstoneProject/ExpenseTrackingSystem/ExpenseTrackingSystem.csproj": {}
+    "/Users/aditirajesh/Desktop/CapstoneProject-ETS/ExpenseTrackingSystem/ExpenseTrackingSystem.csproj": {}
   },
   "projects": {
-    "/Users/aditirajesh/Desktop/GenSpark-Training/CapstoneProject/ExpenseTrackingSystem/ExpenseTrackingSystem.csproj": {
+    "/Users/aditirajesh/Desktop/CapstoneProject-ETS/ExpenseTrackingSystem/ExpenseTrackingSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/aditirajesh/Desktop/GenSpark-Training/CapstoneProject/ExpenseTrackingSystem/ExpenseTrackingSystem.csproj",
+        "projectUniqueName": "/Users/aditirajesh/Desktop/CapstoneProject-ETS/ExpenseTrackingSystem/ExpenseTrackingSystem.csproj",
         "projectName": "ExpenseTrackingSystem",
-        "projectPath": "/Users/aditirajesh/Desktop/GenSpark-Training/CapstoneProject/ExpenseTrackingSystem/ExpenseTrackingSystem.csproj",
+        "projectPath": "/Users/aditirajesh/Desktop/CapstoneProject-ETS/ExpenseTrackingSystem/ExpenseTrackingSystem.csproj",
         "packagesPath": "/Users/aditirajesh/.nuget/packages/",
-        "outputPath": "/Users/aditirajesh/Desktop/GenSpark-Training/CapstoneProject/ExpenseTrackingSystem/obj/",
+        "outputPath": "/Users/aditirajesh/Desktop/CapstoneProject-ETS/ExpenseTrackingSystem/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/aditirajesh/.nuget/NuGet/NuGet.Config"
@@ -44,6 +44,14 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Azure.Identity": {
+              "target": "Package",
+              "version": "[1.14.2, )"
+            },
+            "Azure.Security.KeyVault.Secrets": {
+              "target": "Package",
+              "version": "[4.8.0, )"
+            },
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.3, )"

@@ -54,6 +54,26 @@
       >
     </div>
 
+    <!-- NEW: Expense Date Field -->
+    <div class="form-group">
+      <label for="expenseDate">Expense Date</label>
+      <input
+        type="date"
+        id="expenseDate"
+        [(ngModel)]="editForm.expenseDate"
+        name="expenseDate"
+        class="form-input"
+        [max]="maxDate"
+        (change)="onExpenseDateChange()"
+      >
+      <small class="form-hint">
+        Current: {{ getCurrentExpenseDateDisplay() }}. Future dates are not allowed.
+      </small>
+      <div *ngIf="dateError" class="field-error">
+        {{ dateError }}
+      </div>
+    </div>
+
     <div class="form-group">
       <label for="category">Category *</label>
       <select

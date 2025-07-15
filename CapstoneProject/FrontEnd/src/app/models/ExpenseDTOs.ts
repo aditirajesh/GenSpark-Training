@@ -8,6 +8,7 @@ export interface ExpenseAddRequestDto {
   amount: number;              
   receiptBill?: File;          
   targetUsername?: string;      
+  ExpenseDate?: Date | string; // Match backend property name exactly (capital E)
 }
 
 
@@ -18,6 +19,7 @@ export interface ExpenseUpdateRequestDto {
   notes?: string;           
   amount?: number;           
   receipt?: File; 
+  ExpenseDate?: Date | string; // Match backend property name exactly (capital E)
 }
 
 

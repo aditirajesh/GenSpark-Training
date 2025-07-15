@@ -129,10 +129,42 @@
   background-color: #f8fafc;
 }
 
-.file-hint {
+.file-hint, .form-hint {
   color: #64748b;
   font-size: 0.75rem;
   margin-top: 0.25rem;
+}
+
+/* NEW: Field Error Styles */
+.field-error {
+  color: #dc2626;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.field-error::before {
+  content: '⚠️';
+  font-size: 0.875rem;
+}
+
+/* Date Input Specific Styles */
+.form-input[type="date"] {
+  position: relative;
+  cursor: pointer;
+}
+
+.form-input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+}
+
+.form-input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  background-color: #f3f4f6;
 }
 
 /* Selected File Info */

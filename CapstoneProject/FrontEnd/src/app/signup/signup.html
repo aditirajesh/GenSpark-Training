@@ -21,7 +21,7 @@
               placeholder="Enter your email"
               autocomplete="email">
             <div *ngIf="isFieldInvalid('email')" class="error-message">
-              Valid email is required
+              {{ getFieldErrorMessage('email') }}
             </div>
           </div>
           
@@ -33,10 +33,11 @@
               id="phone"
               formControlName="phone"
               [class.error]="isFieldInvalid('phone')"
-              placeholder="Enter your phone number"
-              autocomplete="tel">
+              placeholder="Enter 10-digit phone number"
+              autocomplete="tel"
+              maxlength="10">
             <div *ngIf="isFieldInvalid('phone')" class="error-message">
-              Valid phone number is required
+              {{ getFieldErrorMessage('phone') }}
             </div>
           </div>
           
@@ -51,7 +52,7 @@
               placeholder="Create a strong password"
               autocomplete="new-password">
             <div *ngIf="isFieldInvalid('password')" class="error-message">
-              Password must be at least 8 characters
+              {{ getFieldErrorMessage('password') }}
             </div>
           </div>
           
@@ -66,8 +67,7 @@
               placeholder="Confirm your password"
               autocomplete="new-password">
             <div *ngIf="isFieldInvalid('confirmPassword')" class="error-message">
-              <span *ngIf="signupForm.get('confirmPassword')?.hasError('required')">Please confirm your password</span>
-              <span *ngIf="signupForm.get('confirmPassword')?.hasError('passwordMismatch')">Passwords must match</span>
+              {{ getFieldErrorMessage('confirmPassword') }}
             </div>
           </div>
           
@@ -101,4 +101,4 @@
         
       </div>
       
-    </app-auth-layout>
+</app-auth-layout>

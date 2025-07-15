@@ -710,9 +710,7 @@ export class ExpenseComponent implements OnInit, OnDestroy {
   }
 
   formatDate(date: Date | string): string {
-    console.log('Formatting date:', date, 'Type:', typeof date);
     
-    if (!date) return 'Unknown Date';
     
     try {
       const dateObj = date instanceof Date ? date : new Date(date);
@@ -734,7 +732,6 @@ export class ExpenseComponent implements OnInit, OnDestroy {
   }
 
   formatAmount(amount: number): string {
-    console.log('Formatting amount:', amount, 'Type:', typeof amount);
     
     // Handle null, undefined, or NaN values
     if (amount === null || amount === undefined || isNaN(amount) || amount === 0) {

@@ -21,7 +21,7 @@
               placeholder="Enter your email"
               autocomplete="username">
             <div *ngIf="isFieldInvalid('email')" class="error-message">
-              Valid email is required
+              {{ getFieldErrorMessage('email') }}
             </div>
           </div>
           
@@ -36,7 +36,7 @@
               placeholder="Enter your password"
               autocomplete="current-password">
             <div *ngIf="isFieldInvalid('password')" class="error-message">
-              Password is required
+              {{ getFieldErrorMessage('password') }}
             </div>
           </div>
           

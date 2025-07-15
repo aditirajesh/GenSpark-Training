@@ -25,12 +25,15 @@ export class EditExpenseComponent {
     title: '',
     amount: 0,
     category: '',
-    notes: ''
+    notes: '',
+    expenseDate: ''  // NEW: Expense date field
   };
 
   selectedFile: File | null = null;
   isSubmitting = false;
   error = '';
+  dateError = '';  // NEW: Date-specific error messages
+  maxDate = '';    // NEW: Maximum allowed date (today)
 
   categories = [
     'Food & Dining',
@@ -45,10 +48,33 @@ export class EditExpenseComponent {
     'Gifts & Donations'
   ];
 
-  constructor(private expenseService: ExpenseService) {}
+  constructor(private expenseService: ExpenseService) {
+    // NEW: Set max date to today
+    this.maxDate = this.getTodayDateString();
+  }
 
   ngOnInit(): void {
     this.initializeForm();
+  }
+
+  // NEW: Get today's date in YYYY-MM-DD format
+  private getTodayDateString(): string {
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+  }
+
+  // NEW: Convert Date to YYYY-MM-DD format for input
+  private formatDateForInput(date: Date | string): string {
+    if (!date) return '';
+    
+    try {
+      const dateObj = date instanceof Date ? date : new Date(date);
+      if (isNaN(dateObj.getTime())) return '';
+      
+      return dateObj.toISOString().split('T')[0];
+    } catch (error) {
+      return '';
+    }
   }
 
   private initializeForm(): void {
@@ -57,8 +83,34 @@ export class EditExpenseComponent {
         title: this.expense.title,
         amount: this.expense.amount,
         category: this.expense.category,
-        notes: this.expense.notes || ''
+        notes: this.expense.notes || '',
+        expenseDate: this.formatDateForInput(this.expense.createdAt)  // NEW: Set current expense date
       };
+    }
+  }
+
+  // NEW: Validate expense date
+  onExpenseDateChange(): void {
+    this.dateError = '';
+    
+    if (this.editForm.expenseDate) {
+      const selectedDate = new Date(this.editForm.expenseDate);
+      const today = new Date();
+      today.setHours(23, 59, 59, 999); // Set to end of today
+      
+      if (selectedDate > today) {
+        this.dateError = 'Expense date cannot be in the future';
+        return;
+      }
+      
+      // Optional: Check if date is too far in the past (e.g., more than 2 years)
+      const twoYearsAgo = new Date();
+      twoYearsAgo.setFullYear(today.getFullYear() - 2);
+      
+      if (selectedDate < twoYearsAgo) {
+        this.dateError = 'Expense date cannot be more than 2 years in the past';
+        return;
+      }
     }
   }
 
@@ -87,7 +139,8 @@ export class EditExpenseComponent {
     return !!(
       this.editForm.title?.trim() &&
       this.editForm.amount > 0 &&
-      this.editForm.category
+      this.editForm.category &&
+      !this.dateError  // NEW: Include date validation
     );
   }
 
@@ -96,8 +149,28 @@ export class EditExpenseComponent {
       return;
     }
 
+    // NEW: Final date validation before submission
+    if (this.editForm.expenseDate) {
+      const selectedDate = new Date(this.editForm.expenseDate);
+      const today = new Date();
+      today.setHours(23, 59, 59, 999);
+      
+      if (selectedDate > today) {
+        this.dateError = 'Expense date cannot be in the future';
+        return;
+      }
+    }
+
     this.isSubmitting = true;
     this.error = '';
+
+    // FIXED: Handle expense date properly - convert to ISO string for FormData
+    let expenseDateString: string | undefined = undefined;
+    if (this.editForm.expenseDate) {
+      // Create date object and set time to noon to avoid timezone issues
+      const expenseDate = new Date(this.editForm.expenseDate + 'T12:00:00');
+      expenseDateString = expenseDate.toISOString();
+    }
 
     const updateDto: ExpenseUpdateRequestDto = {
       id: this.expense.id,
@@ -105,12 +178,14 @@ export class EditExpenseComponent {
       amount: this.editForm.amount,
       category: this.editForm.category,
       notes: this.editForm.notes.trim() || undefined,
-      receipt: this.selectedFile || undefined
+      receipt: this.selectedFile || undefined,
+      ExpenseDate: expenseDateString  // FIXED: Use ExpenseDate (capital E) to match backend exactly
     };
 
     console.log('Updating expense:', {
       ...updateDto,
       receipt: this.selectedFile ? `${this.selectedFile.name} (${this.selectedFile.size} bytes)` : 'No new receipt',
+      ExpenseDate: expenseDateString || 'Not changed',
       adminMode: this.adminMode,
       targetUsername: this.targetUsername,
       originalOwner: this.expense.username
@@ -138,7 +213,8 @@ export class EditExpenseComponent {
             expenseId: updatedExpense.id,
             title: updatedExpense.title,
             amount: updatedExpense.amount,
-            owner: updatedExpense.username
+            owner: updatedExpense.username,
+            expenseDate: updatedExpense.createdAt
           });
         }
         
@@ -155,6 +231,22 @@ export class EditExpenseComponent {
 
   onCancel(): void {
     this.closeModal.emit();
+  }
+
+  // NEW: Get current expense date display text
+  getCurrentExpenseDateDisplay(): string {
+    if (!this.expense?.createdAt) return 'Unknown';
+    
+    try {
+      const date = new Date(this.expense.createdAt);
+      return date.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      });
+    } catch (error) {
+      return 'Invalid Date';
+    }
   }
 
   // Computed properties for UI
