@@ -1,47 +1,63 @@
-
-
-
-using Azure.Identity;
-using Azure.Security.KeyVault.Secrets;
 using Azure.Storage.Blobs;
+using BlobApplication.Models;
 
 namespace BlobApplication.Services
 {
     public class BlobStorageService
     {
-        private  BlobContainerClient _containerClinet;
         private readonly IConfiguration _configuration;
+        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly ILogger<BlobStorageService> _logger;
 
-        public BlobStorageService(IConfiguration configuration)
+        public BlobStorageService(
+            IConfiguration configuration,
+            IHttpClientFactory httpClientFactory,
+            ILogger<BlobStorageService> logger)
         {
             _configuration = configuration;
-            
+            _httpClientFactory = httpClientFactory;
+            _logger = logger;
         }
 
-        private async Task UpdateContainerClient()
+        private async Task<BlobClient> GetBlobClientWithSas(string fileName)
         {
-            var blobUrl = _configuration["AzureBlob:KeyVaultUrl"];
-            SecretClient secretClient = new SecretClient(new Uri(blobUrl), new DefaultAzureCredential());
-            KeyVaultSecret secret = await secretClient.GetSecretAsync("SecretSasUrl");
-            var blobUrlValue = secret.Value;
-            _containerClinet = new BlobContainerClient(new Uri(blobUrlValue));
+            string functionKey = _configuration["AzureFunctionKey"];
+            string functionUrl = $"https://mydotnetfunction.azurewebsites.net/api/generate-sas/{fileName}?code={functionKey}";
+
+            var client = _httpClientFactory.CreateClient();
+            var sasResponse = await client.GetAsync(functionUrl);
+            if (!sasResponse.IsSuccessStatusCode)
+            {
+                var error = await sasResponse.Content.ReadAsStringAsync();
+                _logger.LogError($"Failed to get SAS URL: {error}");
+                throw new InvalidOperationException("Could not obtain SAS URL.");
+            }
+
+            var sasData = await sasResponse.Content.ReadFromJsonAsync<SasResponse>();
+            if (sasData == null || string.IsNullOrWhiteSpace(sasData.sasUrl))
+            {
+                throw new InvalidOperationException("SAS URL response invalid.");
+            }
+
+            _logger.LogInformation($"SAS URL obtained: {sasData.sasUrl}");
+
+            // Create BlobClient directly using the SAS URL
+            return new BlobClient(new Uri(sasData.sasUrl));
         }
 
-        public async Task UploadFile(Stream fileStream,string fileName)
+        public async Task UploadFile(Stream fileStream, string fileName)
         {
-            await UpdateContainerClient();
-            var blobClient = _containerClinet.GetBlobClient(fileName);
-            await blobClient.UploadAsync(fileStream,overwrite:true);
+            var blobClient = await GetBlobClientWithSas(fileName);
+            await blobClient.UploadAsync(fileStream, overwrite: true);
         }
 
         public async Task<Stream> DownloadFile(string fileName)
         {
-            await UpdateContainerClient();
-            var blobClient = _containerClinet?.GetBlobClient(fileName);
-            if(await blobClient.ExistsAsync())
+            var blobClient = await GetBlobClientWithSas(fileName);
+            if (await blobClient.ExistsAsync())
             {
-                var downloadInfor = await blobClient.DownloadStreamingAsync();
-                return downloadInfor.Value.Content;
+                var downloadInfo = await blobClient.DownloadStreamingAsync();
+                return downloadInfo.Value.Content;
             }
             return null;
         }
